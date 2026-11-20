@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FS Express — Direction artistique</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,700;0,900;1,900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bleu:#1690C1;          /* bleu FS Express (référence #1690C1) */
+    --bleu-fonce:#0E6A96;
+    --bleu-nuit:#0A3D57;     /* texte principal, nuance foncée du bleu */
+    --bleu-clair:#7CCBEA;
+    --bleu-pale:#E8F6FC;
+    --rouge:#93241E;         /* rouge FS Express (référence #93241E) */
+    --rouge-fonce:#5E1712;
+    --rouge-clair:#C4463D;
+    --blanc:#FFFFFF;
+    --gris:#5B6B76;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--blanc);color:var(--bleu-nuit);font-family:Inter,system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.display{font-family:Archivo,Inter,sans-serif;font-weight:900;letter-spacing:-.02em;line-height:.95}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+  section{padding:72px 0;border-top:1px solid #DCEEF7}
+  .kicker{font-family:Archivo,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:13px;color:var(--rouge)}
+  h2{font-size:clamp(34px,6vw,58px);margin:10px 0 18px;color:var(--bleu-nuit)}
+  h3{font-size:22px;margin-bottom:8px;color:var(--bleu-nuit)}
+  p.lead{font-size:18px;max-width:720px;color:var(--gris)}
+  ul{padding-left:20px}
+  li{margin:6px 0}
+
+  /* HERO */
+  .hero{background:var(--bleu);color:var(--blanc);padding:56px 0 80px;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:var(--bleu-fonce);opacity:.55}
+  .hero::after{content:"";position:absolute;left:-80px;bottom:-140px;width:360px;height:360px;border-radius:50%;background:var(--rouge);opacity:.9}
+  .hero .wrap{position:relative;z-index:1}
+  .badge{display:inline-flex;align-items:center;gap:14px;background:var(--blanc);border-radius:16px;padding:10px 14px}
+  .badge img{height:64px;width:auto}
+  .hero h1{font-size:clamp(40px,11vw,132px);margin:34px 0 14px;font-style:italic;overflow-wrap:anywhere}
+  .hero h1 span{display:inline-block;background:var(--rouge);padding:0 16px;border-radius:12px;font-style:normal}
+  .hero p{font-size:clamp(18px,2.4vw,24px);max-width:640px;font-weight:500}
+  .hero .tags{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px}
+  .tag{border:2px solid rgba(255,255,255,.7);border-radius:999px;padding:6px 14px;font-weight:600;font-size:14px}
+
+  /* PALETTE */
+  .swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:32px}
+  .sw{border-radius:var(--radius);overflow:hidden;border:1px solid #DCEEF7;background:var(--blanc)}
+  .sw .chip{height:150px;padding:14px;display:flex;align-items:flex-end;font-family:Archivo,sans-serif;font-weight:900;font-size:22px}
+  .sw .meta{padding:12px 14px;font-size:14px;color:var(--gris)}
+  .sw .meta b{color:var(--bleu-nuit);display:block;font-size:15px}
+  .ratio{display:flex;height:72px;border-radius:14px;overflow:hidden;margin-top:28px;border:1px solid #DCEEF7}
+  .ratio div{display:flex;align-items:center;padding:0 12px;font-size:13px;font-weight:600;color:var(--blanc)}
+  .no-go{margin-top:24px;background:#FDF3F2;border-left:5px solid var(--rouge);padding:16px 20px;border-radius:12px}
+
+  /* TYPO */
+  .type-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:32px}
+  @media(max-width:760px){.type-grid{grid-template-columns:1fr}}
+  .card{background:var(--bleu-pale);border-radius:var(--radius);padding:24px}
+  .card.red{background:#FBEFEE}
+  .card.white{background:var(--blanc);border:1px solid #DCEEF7}
+  .specimen{font-family:Archivo,sans-serif;font-weight:900;font-size:clamp(40px,10vw,64px);line-height:.95;color:var(--bleu-nuit);overflow-wrap:anywhere}
+  .specimen.i{font-style:italic;color:var(--rouge)}
+
+  /* AXES */
+  .three{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:32px}
+  .axis{border-radius:var(--radius);padding:26px;min-height:260px;position:relative;overflow:hidden}
+  .axis.a{background:var(--bleu-nuit);color:var(--blanc)}
+  .axis.b{background:var(--bleu);color:var(--blanc)}
+  .axis.c{background:var(--rouge);color:var(--blanc)}
+  .axis .n{font-family:Archivo,sans-serif;font-weight:900;font-size:64px;opacity:.35;line-height:1}
+  .axis h3{color:var(--blanc);margin-top:6px}
+  .axis p{opacity:.92}
+
+  /* SIGNATURE */
+  .sig{background:var(--bleu-nuit);color:var(--blanc)}
+  .sig h2{color:var(--blanc)}
+  .sig p.lead{color:#C9E7F5}
+  .sig .kicker{color:var(--bleu-clair)}
+  .sig-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:32px}
+  .sig-grid .card{background:rgba(255,255,255,.07);color:var(--blanc);border:1px solid rgba(255,255,255,.12)}
+  .sig-grid h3{color:var(--blanc)}
+  .sig-grid li{color:#E3F3FA}
+  .rules{margin-top:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+  .rule{border-radius:14px;background:var(--blanc);color:var(--bleu-nuit);padding:16px 18px;font-weight:500}
+  .rule b{color:var(--rouge)}
+
+  /* CONCEPTS */
+  .boards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px;margin-top:34px}
+  .board-wrap h3{margin:0 0 4px}
+  .board-wrap .why{color:var(--gris);font-size:14px;margin-bottom:12px}
+  .board{position:relative;overflow:hidden;border-radius:22px;aspect-ratio:4/5;box-shadow:0 14px 40px rgba(10,61,87,.18)}
+  .board.story{aspect-ratio:9/16;max-width:360px}
+  .board .logo{position:absolute;top:16px;left:16px;background:var(--blanc);border-radius:12px;padding:6px 10px;z-index:3}
+  .board .logo img{height:44px;width:auto}
+  .board .ph{position:absolute;border:2.5px dashed rgba(255,255,255,.85);border-radius:18px;display:flex;align-items:center;justify-content:center;text-align:center;padding:14px;font-size:13px;font-weight:600;color:#fff;background:rgba(255,255,255,.08);z-index:2}
+  .board .ph.dark{border-color:rgba(10,61,87,.7);color:var(--bleu-nuit);background:rgba(255,255,255,.35)}
+  .board .big{position:absolute;font-family:Archivo,sans-serif;font-weight:900;letter-spacing:-.03em;line-height:.92;z-index:4}
+  .board .cta{position:absolute;bottom:18px;left:18px;z-index:4;background:var(--blanc);color:var(--rouge);font-family:Archivo,sans-serif;font-weight:900;padding:10px 18px;border-radius:999px;font-size:15px}
+  .board .bubble{position:absolute;background:var(--blanc);color:var(--bleu-nuit);font-family:Archivo,sans-serif;font-weight:900;padding:12px 16px;border-radius:18px;z-index:4;font-size:20px}
+  .board .bubble::after{content:"";position:absolute;left:24px;bottom:-10px;border:10px solid transparent;border-top-color:var(--blanc);border-bottom:0}
+  .board .stripe{position:absolute;z-index:1;transform:skewY(-8deg)}
+  .board .motion{position:absolute;inset:0;z-index:1;opacity:.5}
+  .board .foot{position:absolute;bottom:14px;right:16px;font-size:11px;color:rgba(255,255,255,.85);z-index:4;font-weight:600}
+
+  /* Les visuels se règlent sur leur propre largeur (cqw) pour rester lisibles à toutes les tailles */
+  .board{container-type:inline-size}
+  .board .ph{font-size:12px}
+
+  /* B1 bleu */
+  .b1{background:linear-gradient(160deg,var(--bleu) 0%,var(--bleu-fonce) 100%);color:var(--blanc)}
+  .b1 .big{left:7%;top:19%;font-size:12.5cqw;width:86%}
+  .b1 .big em{font-style:normal;background:var(--rouge);padding:0 .12em;border-radius:.2em}
+  .b1 .ph{right:6%;top:52%;width:50%;height:24%}
+  .b1 .stripe{left:-10%;top:46%;width:120%;height:3.5%;background:var(--rouge)}
+
+  /* B2 rouge */
+  .b2{background:var(--rouge);color:var(--blanc)}
+  .b2 .big{left:7%;top:19%;font-size:11.5cqw;font-style:italic;width:88%}
+  .b2 .ph{left:6%;bottom:10%;width:50%;height:36%;border-radius:50%}
+  .b2 .bubble{right:5%;top:56%;transform:rotate(-4deg);font-size:4.6cqw}
+  .b2 .circle{position:absolute;right:-60px;bottom:-60px;width:260px;height:260px;border-radius:50%;background:var(--rouge-fonce);opacity:.6;z-index:1}
+
+  /* B3 blanc */
+  .b3{background:var(--blanc);color:var(--bleu-nuit);border:1px solid #DCEEF7}
+  .b3 .big{left:7%;top:18%;font-size:11.5cqw;color:var(--bleu);width:88%}
+  .b3 .big span{color:var(--rouge)}
+  .b3 .stripe{left:-10%;top:58%;width:120%;height:24%;background:var(--bleu-pale)}
+  .b3 .ph{left:16px;right:16px;top:58%;height:22%;background:var(--bleu-nuit);color:var(--blanc);border-color:var(--bleu-nuit)}
+  .b3 .motion{background:repeating-linear-gradient(-22deg,transparent 0 22px,rgba(22,144,193,.35) 22px 24px);}
+  .b3 .logo{top:16px;bottom:auto;left:auto;right:16px}
+  .b3 .cta{background:var(--rouge);color:var(--blanc);left:18px;bottom:18px}
+
+  /* B4 recrutement */
+  .b4{background:var(--bleu-nuit);color:var(--blanc)}
+  .b4 .split{position:absolute;inset:0 0 auto 0;height:52%;background:var(--bleu);clip-path:polygon(0 0,100% 0,100% 78%,0 100%);z-index:1}
+  .b4 .big{left:7%;top:19%;font-size:12cqw;z-index:4;width:88%}
+  .b4 .big span{color:var(--bleu-nuit);background:var(--blanc);padding:0 .12em;border-radius:.15em}
+  .b4 .ph{left:18%;right:18%;bottom:16%;height:30%;border-radius:999px 999px 18px 18px}
+  .b4 .cta{background:var(--rouge);color:var(--blanc)}
+
+  /* B5 story */
+  .b5{background:var(--rouge-fonce);color:var(--blanc)}
+  .b5 .big{left:7%;top:14%;font-size:11cqw;width:88%}
+  .b5 .big em{font-style:normal;color:var(--bleu-clair)}
+  .b5 .ph{left:7%;right:7%;top:42%;height:28%;background:var(--bleu)}
+  .b5 .arrow{position:absolute;left:7%;right:7%;bottom:20%;height:58px;background:var(--rouge-clair);clip-path:polygon(0 25%,70% 25%,70% 0,100% 50%,70% 100%,70% 75%,0 75%);z-index:3}
+  .b5 .cta{background:var(--blanc);color:var(--rouge);bottom:24px;left:18px}
+
+  /* ELEMENTS */
+  .elements{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:30px}
+  .el{background:var(--bleu-pale);border-radius:16px;padding:18px;font-weight:600}
+  .el small{display:block;font-weight:400;color:var(--gris);margin-top:4px}
+
+  /* TABLE */
+  table{width:100%;border-collapse:collapse;margin-top:28px;font-size:15px}
+  th,td{text-align:left;padding:14px 12px;border-bottom:1px solid #DCEEF7;vertical-align:top}
+  th{font-family:Archivo,sans-serif;text-transform:uppercase;font-size:12px;letter-spacing:.1em;color:var(--bleu-fonce)}
+  td:first-child{font-weight:700;color:var(--bleu-nuit);width:30%}
+  @media(max-width:640px){
+    table,thead,tbody,tr,td,th{display:block}
+    thead{display:none}
+    tr{border-bottom:1px solid #DCEEF7;padding:10px 0}
+    td{border:0;padding:4px 0;width:auto}
+  }
+
+  .formats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:28px}
+  .fmt{border:2px solid var(--bleu);border-radius:16px;padding:18px}
+  .fmt b{font-family:Archivo,sans-serif;font-size:26px;color:var(--bleu-nuit);display:block}
+  .fmt span{color:var(--gris);font-size:14px}
+
+  .tone{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+  .tone span{background:var(--rouge);color:var(--blanc);border-radius:999px;padding:10px 18px;font-weight:600;font-size:15px}
+  .tone span:nth-child(3n+2){background:var(--bleu)}
+  .tone span:nth-child(3n){background:var(--bleu-nuit)}
+
+  .next{background:var(--bleu-pale)}
+  .next ol{padding-left:22px;margin-top:14px}
+  .next li{margin:10px 0}
+  footer{padding:36px 0;background:var(--bleu-nuit);color:#C9E7F5;font-size:14px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="badge">
+      <img src="assets/logo-fs-express.jpg" alt="Logo FS Express">
+    </div>
+    <h1>Votre colis, <span>notre priorité.</span></h1>
+    <p>Direction artistique FS Express : une identité urbaine, énergique, moderne, accessible et audacieuse, construite sur le bleu et le rouge de la marque.</p>
+    <div class="tags">
+      <span class="tag">Urbaine</span><span class="tag">Énergique</span><span class="tag">Moderne</span><span class="tag">Accessible</span><span class="tag">Audacieuse</span>
+    </div>
+  </div>
+</header>
+
+<!-- 1. CONCEPT -->
+<section>
+  <div class="wrap">
+    <div class="kicker">01 — Concept</div>
+    <h2>Des visuels qui racontent quelque chose.</h2>
+    <p class="lead">Il ne s'agit pas de produire de jolies affiches. Chaque création doit avoir une identité, une intention et un impact visuel. La marque doit être reconnaissable en un coup d'œil, même dans un fil d'actualité qui défile vite.</p>
+    <div class="three">
+      <div class="axis a"><div class="n">01</div><h3>Rapidité</h3><p>Diagonales, lignes de mouvement, flèches. Le visuel suggère que le colis arrive déjà.</p></div>
+      <div class="axis b"><div class="n">02</div><h3>Proximité</h3><p>Des livreurs réels, des clients souriants, des scènes de rue. On voit des humains, pas des icônes.</p></div>
+      <div class="axis c"><div class="n">03</div><h3>Fiabilité</h3><p>Une composition nette, une hiérarchie claire, un logo toujours intact et parfaitement lisible.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. PALETTE -->
+<section>
+  <div class="wrap">
+    <div class="kicker">02 — Charte chromatique</div>
+    <h2>Bleu et rouge. Le blanc respire.</h2>
+    <p class="lead">Le bleu et le rouge forment la base de l'identité. Le blanc sert de fond, d'espace de respiration et de contraste. Les nuances plus claires ou plus foncées sont autorisées pour les dégradés, les ombres et la profondeur.</p>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#1690C1;color:#fff">Bleu FS</div><div class="meta"><b>Bleu FS Express — principal</b>#1690C1</div></div>
+      <div class="sw"><div class="chip" style="background:#93241E;color:#fff">Rouge FS</div><div class="meta"><b>Rouge FS Express — secondaire</b>#93241E</div></div>
+      <div class="sw"><div class="chip" style="background:#FFFFFF;color:#0A3D57;border-bottom:1px solid #DCEEF7">Blanc</div><div class="meta"><b>Blanc — complémentaire</b>#FFFFFF</div></div>
+      <div class="sw"><div class="chip" style="background:#0A3D57;color:#fff">Bleu nuit</div><div class="meta"><b>Nuance foncée du bleu</b>#0A3D57 — textes, fonds profonds</div></div>
+      <div class="sw"><div class="chip" style="background:#7CCBEA;color:#0A3D57">Bleu clair</div><div class="meta"><b>Nuance claire du bleu</b>#7CCBEA — accents, lumières</div></div>
+      <div class="sw"><div class="chip" style="background:#5E1712;color:#fff">Rouge profond</div><div class="meta"><b>Nuance foncée du rouge</b>#5E1712 — ombres, fonds</div></div>
+    </div>
+    <div class="ratio" aria-label="Proportions d'usage">
+      <div style="flex:45;background:#1690C1">Bleu 45 %</div>
+      <div style="flex:25;background:#93241E">Rouge 25 %</div>
+      <div style="flex:30;background:#FFFFFF;color:#0A3D57;border-left:1px solid #DCEEF7">Blanc 30 %</div>
+    </div>
+    <div class="no-go">
+      <b>Consigne importante :</b> les couleurs orange et jaune présentes dans certaines références d'inspiration ne doivent pas être reprises. Les références inspirent les compositions, les techniques et les traitements, jamais l'identité chromatique. Le logo reste dans son apparence originale : pas de déformation, pas de recoloration, pas de transparence forcée sur fond coloré (il est posé sur un fond blanc).
+    </div>
+  </div>
+</section>
+
+<!-- 3. TYPO -->
+<section>
+  <div class="wrap">
+    <div class="kicker">03 — Typographie</div>
+    <h2>Gras, serré, immédiatement lisible.</h2>
+    <p class="lead">Des sans-serif modernes et épais pour les titres, un texte courant sobre. Les mots-clés passent en grand format, parfois en italique, et les accroches restent courtes.</p>
+    <div class="type-grid">
+      <div class="card">
+        <div class="kicker" style="color:var(--bleu-fonce)">Titres — Archivo Black / Archivo 900</div>
+        <p class="specimen" style="margin-top:14px">Vous avez commandé ?</p>
+        <p class="specimen i" style="margin-top:10px">On arrive !</p>
+      </div>
+      <div class="card white">
+        <div class="kicker" style="color:var(--bleu-fonce)">Texte — Inter 400 / 500 / 600</div>
+        <p style="font-size:20px;margin-top:14px">Livraison en ville, suivi en temps réel, paiement simplifié. Votre boutique en ligne mérite un partenaire fiable.</p>
+        <p style="margin-top:14px;font-size:14px;color:var(--gris)">Hiérarchie : titre → accroche → information → appel à l'action (bouton rouge ou pastille).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. AXES -->
+<section>
+  <div class="wrap">
+    <div class="kicker">04 — Trois approches visuelles</div>
+    <h2>Photo, 3D, composition.</h2>
+    <p class="lead">Les trois approches peuvent se combiner dans une même campagne. Une seule idée forte par visuel.</p>
+    <div class="three">
+      <div class="axis a">
+        <div class="n">A</div>
+        <h3>Photographie publicitaire</h3>
+        <p>Livreurs en situation réelle, remise de colis, portraits souriants, clients qui reçoivent leur commande, motos et scooters en ville au coucher du soleil.</p>
+      </div>
+      <div class="axis b">
+        <div class="n">B</div>
+        <h3>3D et semi-réaliste</h3>
+        <p>Scooters et motos, colis et sacs personnalisés aux couleurs FS Express, smartphones avec interface de commande, personnages 3D stylisés, objets détourés et flottants.</p>
+      </div>
+      <div class="axis c">
+        <div class="n">C</div>
+        <h3>Composition graphique</h3>
+        <p>Détourage, superposition, ombres, perspective forcée, textes qui s'intègrent au décor, éléments en mouvement, cercles et formes géométriques inspirées du logo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. SIGNATURE -->
+<section class="sig">
+  <div class="wrap">
+    <div class="kicker">05 — Axe signature</div>
+    <h2>Proportions exagérées, perspective assumée.</h2>
+    <p class="lead">Une main XXL qui tend un colis, une tête légèrement surdimensionnée, un colis au premier plan qui paraît gigantesque. L'exagération est volontaire, elle est montrée sans gêne, et elle reste publicitaire.</p>
+    <div class="sig-grid">
+      <div class="card"><h3>Mains XXL</h3><ul>
+        <li>Une main démesurée qui tend un colis vers le spectateur</li>
+        <li>Un pouce levé pour la satisfaction</li>
+        <li>Une main qui sort de l'affiche pour remettre une commande</li></ul></div>
+      <div class="card"><h3>Têtes disproportionnées</h3><ul>
+        <li>Livreur à tête légèrement surdimensionnée</li>
+        <li>Sourire XXL pour le client satisfait</li>
+        <li>Yeux expressifs, expression de surprise rapide</li></ul></div>
+      <div class="card"><h3>Jeux de perspective</h3><ul>
+        <li>Colis au premier plan, gigantesque</li>
+        <li>Objet qui semble sortir de l'écran</li>
+        <li>Personnage qui interagit avec le texte</li></ul></div>
+    </div>
+    <div class="rules">
+      <div class="rule"><b>1.</b> Un seul élément disproportionné à la fois : tête, main, pouce ou accessoire.</div>
+      <div class="rule"><b>2.</b> Le reste du corps garde des proportions naturelles.</div>
+      <div class="rule"><b>3.</b> Textures de peau, vêtements et accessoires restent crédibles.</div>
+      <div class="rule"><b>4.</b> Expressions expressives, jamais grotesques ni enfantines.</div>
+      <div class="rule"><b>5.</b> Finition haut de gamme : pas de rendu artificiel, pas de caricature grossière.</div>
+      <div class="rule"><b>6.</b> Ne pas l'utiliser systématiquement : seulement quand elle apporte une vraie valeur au message.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. CONCEPTS -->
+<section>
+  <div class="wrap">
+    <div class="kicker">06 — Pistes de concepts</div>
+    <h2>Cinq maquettes de départ.</h2>
+    <p class="lead">Les zones en pointillés indiquent les photos ou rendus à produire (livreur, main XXL, scooter 3D). Les logos sont posés sur fond blanc, sans déformation. Ces maquettes servent de base de mise en page et de hiérarchie, pas de rendu final.</p>
+
+    <div class="boards">
+
+      <!-- B1 -->
+      <div class="board-wrap">
+        <h3>1 — Commerciale</h3>
+        <p class="why">Accroche forte, offre, appel à l'action. « Votre colis, notre priorité. »</p>
+        <div class="board b1">
+          <div class="logo"><img src="assets/logo-fs-express.jpg" alt="Logo FS Express"></div>
+          <div class="stripe"></div>
+          <div class="big">Votre colis, <em>notre priorité.</em></div>
+          <div class="ph">Main XXL qui tend un colis<br>(photo détourée, premier plan)</div>
+          <div class="cta">Commandez maintenant →</div>
+          <div class="foot">Visuel 4:5 · Commerciale</div>
+        </div>
+      </div>
+
+      <!-- B2 -->
+      <div class="board-wrap">
+        <h3>2 — Divertissement</h3>
+        <p class="why">Humour et expression exagérée. « Vous avez commandé ? On arrive ! »</p>
+        <div class="board b2">
+          <div class="circle"></div>
+          <div class="logo"><img src="assets/logo-fs-express.jpg" alt="Logo FS Express"></div>
+          <div class="big">Vous avez commandé ?</div>
+          <div class="bubble">On arrive !</div>
+          <div class="ph">Livreur, tête XXL,<br>grand sourire (photo ou 3D)</div>
+          <div class="foot">Visuel 4:5 · Divertissement</div>
+        </div>
+      </div>
+
+      <!-- B3 -->
+      <div class="board-wrap">
+        <h3>3 — Rapidité / Services</h3>
+        <p class="why">Lignes de mouvement, diagonale, flèche. « Toujours en mouvement, toujours à l'heure. »</p>
+        <div class="board b3">
+          <div class="motion"></div>
+          <div class="stripe"></div>
+          <div class="logo"><img src="assets/logo-fs-express.jpg" alt="Logo FS Express"></div>
+          <div class="big">Toujours en mouvement, <span>toujours à l'heure.</span></div>
+          <div class="ph">Scooter de livraison FS Express<br>(rendu 3D détouré)</div>
+          <div class="cta">Livraison simplifiée</div>
+        </div>
+      </div>
+
+      <!-- B4 -->
+      <div class="board-wrap">
+        <h3>4 — Recrutement</h3>
+        <p class="why">Portrait de livreur, message direct. « Roulez avec FS Express. »</p>
+        <div class="board b4">
+          <div class="split"></div>
+          <div class="logo"><img src="assets/logo-fs-express.jpg" alt="Logo FS Express"></div>
+          <div class="big">Roulez avec <span>FS Express.</span></div>
+          <div class="ph">Portrait de livreur souriant<br>(photo en situation réelle)</div>
+          <div class="cta">Rejoindre l'équipe</div>
+        </div>
+      </div>
+
+      <!-- B5 story -->
+      <div class="board-wrap">
+        <h3>5 — Story 9:16</h3>
+        <p class="why">Vertical, pour Instagram, Facebook et TikTok. « Votre satisfaction, notre destination. »</p>
+        <div class="board story b5">
+          <div class="logo"><img src="assets/logo-fs-express.jpg" alt="Logo FS Express"></div>
+          <div class="big">Votre satisfaction, <em>notre destination.</em></div>
+          <div class="ph">Client qui reçoit sa commande<br>(smartphone ou sac en main)</div>
+          <div class="arrow"></div>
+          <div class="cta">Commander →</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 7. ÉLÉMENTS -->
+<section>
+  <div class="wrap">
+    <div class="kicker">07 — Éléments récurrents</div>
+    <h2>Un vocabulaire commun.</h2>
+    <p class="lead">Ces éléments reviennent d'une publication à l'autre pour créer une cohérence sans uniformité.</p>
+    <div class="elements">
+      <div class="el">Flèches<small>Symbole de rapidité</small></div>
+      <div class="el">Lignes de mouvement<small>Circulation, trajet</small></div>
+      <div class="el">Pictogrammes colis<small>Livraison, remise</small></div>
+      <div class="el">Bulles de texte<small>Dialogue, humour</small></div>
+      <div class="el">Stickers et cadres<small>Mise en avant d'une offre</small></div>
+      <div class="el">Formes du logo<small>Arc bleu, boucle rouge</small></div>
+      <div class="el">Ombres et profondeur<small>Objets détourés</small></div>
+      <div class="el">Smartphones et motos<small>Commande et transport</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. CATÉGORIES -->
+<section>
+  <div class="wrap">
+    <div class="kicker">08 — Déclinaisons</div>
+    <h2>Une orientation par type de contenu.</h2>
+    <table>
+      <thead><tr><th>Catégorie</th><th>Orientation visuelle</th></tr></thead>
+      <tbody>
+        <tr><td>Communication commerciale</td><td>Accroches fortes, offres, promotions, compositions audacieuses.</td></tr>
+        <tr><td>Conseils e-commerce</td><td>Visuels pédagogiques, typographie expressive, illustrations.</td></tr>
+        <tr><td>Preuve sociale</td><td>Photos réelles, témoignages, livraisons effectuées.</td></tr>
+        <tr><td>Coulisses</td><td>Photos humaines, spontanées, authentiques.</td></tr>
+        <tr><td>Recrutement</td><td>Portraits de livreurs, mises en scène, messages directs.</td></tr>
+        <tr><td>Divertissement</td><td>Proportions exagérées, expressions caricaturales, humour, situations du quotidien.</td></tr>
+        <tr><td>Présentation des services</td><td>Illustrations, mises en scène de colis, motos et smartphones.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 9. FORMATS -->
+<section>
+  <div class="wrap">
+    <div class="kicker">09 — Formats</div>
+    <h2>Pensé pour le téléphone.</h2>
+    <p class="lead">Hiérarchie claire, éléments importants dans les zones visibles. Une même campagne se décline sur toutes les plateformes.</p>
+    <div class="formats">
+      <div class="fmt"><b>1080 × 1080</b><span>Publication carrée · Instagram, Facebook</span></div>
+      <div class="fmt"><b>1080 × 1350</b><span>Publication portrait · Instagram, Facebook</span></div>
+      <div class="fmt"><b>1080 × 1920</b><span>Stories et TikTok · 9:16</span></div>
+      <div class="fmt"><b>Selon régie</b><span>Visuels sponsorisés, adaptés aux formats de campagne</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. TON -->
+<section>
+  <div class="wrap">
+    <div class="kicker">10 — Ton de communication</div>
+    <h2>Direct, dynamique, complice.</h2>
+    <p class="lead">Professionnel sans être froid, commercial sans être agressif, humoristique quand le sujet s'y prête. Les accroches sont courtes et orientées vers le bénéfice client.</p>
+    <div class="tone">
+      <span>Votre colis, notre priorité.</span>
+      <span>Vous commandez, nous livrons.</span>
+      <span>Toujours en mouvement, toujours à l'heure.</span>
+      <span>Votre boutique en ligne mérite un partenaire fiable.</span>
+      <span>De votre boutique jusqu'à votre client.</span>
+      <span>La livraison simplifiée, votre quotidien facilité.</span>
+      <span>Vous avez commandé ? On arrive !</span>
+      <span>Votre satisfaction, notre destination.</span>
+    </div>
+  </div>
+</section>
+
+<!-- 11. GARDE-FOUS -->
+<section>
+  <div class="wrap">
+    <div class="kicker">11 — Garde-fous</div>
+    <h2>Ce qu'on évite.</h2>
+    <div class="three">
+      <div class="card red"><h3>Couleurs hors charte</h3><p>Orange, jaune ou tout autre accent qui n'appartient pas au bleu et au rouge FS Express.</p></div>
+      <div class="card red"><h3>Copie de références</h3><p>Reprendre les compositions, personnages ou marques d'autres enseignes. On s'inspire des techniques, pas des visuels.</p></div>
+      <div class="card red"><h3>Banque d'images</h3><p>Visuels génériques, modèles d'affiches trop classiques, personnages sans intention.</p></div>
+      <div class="card red"><h3>Enfantin ou grotesque</h3><p>Exagération qui devient caricature, rendus artificiels, expressions qui font peur.</p></div>
+      <div class="card red"><h3>Logo modifié</h3><p>Pas de déformation, pas de recoloration, pas de réduction illisible.</p></div>
+      <div class="card red"><h3>Texte surchargé</h3><p>Trop de mots, trop d'éléments. Un message principal, une information, un appel à l'action.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 12. PROCHAINES ÉTAPES -->
+<section class="next">
+  <div class="wrap">
+    <div class="kicker">12 — Prochaines étapes</div>
+    <h2>De la direction aux visuels.</h2>
+    <ol>
+      <li><b>Valider la direction</b> : palette, typographies, les trois approches et l'axe signature.</li>
+      <li><b>Shooting livreurs</b> : portraits souriants, remise de colis, scènes urbaines, motos et scooters.</li>
+      <li><b>Rendus 3D</b> : scooter, colis et sac aux couleurs FS Express, smartphone avec interface de commande, personnage stylisé.</li>
+      <li><b>Première campagne</b> : une idée, déclinée en carré, portrait et story 9:16.</li>
+      <li><b>Test sur téléphone</b> : lisibilité du titre et du logo dans le fil d'actualité, avant diffusion.</li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>FS Express — Direction artistique · Communication visuelle et campagnes publicitaires</span>
+    <span>Bleu #1690C1 · Rouge #93241E · Blanc</span>
+  </div>
+</footer>
+
+</body>
+</html>
