@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Campagne semaine 1 — Créas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,700;0,900;1,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Palette FS Express uniquement : bleu #1690C1, rouge #93241E, blanc + nuances */
+  :root{--bleu:#1690C1;--bleu-f:#0E6A96;--nuit:#0A3D57;--bleu-c:#7CCBEA;--rouge:#93241E;--rouge-f:#5E1712;--blanc:#fff}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#EEF6FA;font-family:Inter,sans-serif;padding:24px;display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start}
+  body.export{background:none;padding:0;display:block}
+  body.export .crea{zoom:1;margin:0;display:block}
+  body:not(.export) .crea{zoom:.36}
+  body:not(.export) .wrapc{display:inline-block;background:#fff;padding:0;border-radius:6px;box-shadow:0 6px 20px rgba(10,61,87,.15)}
+  .wrapc h4{font:700 14px Inter;color:#0A3D57;padding:8px 10px 0}
+
+  .crea{position:relative;overflow:hidden;color:var(--blanc);font-family:Inter,sans-serif}
+  .p{width:1080px;height:1350px}
+  .s{width:1080px;height:1920px}
+  .q{width:1080px;height:1080px}
+  .bg-bleu{background:linear-gradient(160deg,var(--bleu) 0%,var(--bleu-f) 100%)}
+  .bg-nuit{background:linear-gradient(160deg,var(--nuit) 0%,#06283A 100%)}
+  .bg-rouge{background:linear-gradient(160deg,var(--rouge) 0%,var(--rouge-f) 100%)}
+  .bg-blanc{background:#fff;color:var(--nuit)}
+
+  .t{font-family:Archivo,sans-serif;font-weight:900;letter-spacing:-.03em;line-height:.93;position:absolute}
+  .hl{background:var(--rouge);padding:.02em .16em .06em;border-radius:.16em;display:inline-block}
+  .hl-b{background:var(--bleu);padding:.02em .16em .06em;border-radius:.16em;display:inline-block}
+  .k{position:absolute;font:700 34px Inter;letter-spacing:.14em;text-transform:uppercase;opacity:.9}
+  .body{position:absolute;font:500 46px/1.32 Inter;opacity:.97}
+  .logo{position:absolute;top:56px;left:56px;background:#fff;border-radius:22px;padding:12px 18px;z-index:5}
+  .logo img{height:92px;display:block}
+  .pg{position:absolute;top:70px;right:60px;font:700 34px Inter;opacity:.85}
+  .cta{position:absolute;left:56px;right:56px;background:#fff;color:var(--rouge);border-radius:999px;padding:28px 40px;font:900 40px/1.2 Archivo,sans-serif;text-align:center}
+  .cta.red{background:var(--rouge);color:#fff}
+  .cta.blue{background:var(--bleu);color:#fff}
+  .note{position:absolute;left:56px;right:56px;font:600 30px/1.35 Inter;opacity:.9}
+  .wa{font-weight:700}
+  .circle{position:absolute;width:150px;height:150px;border-radius:50%;background:var(--rouge);display:flex;align-items:center;justify-content:center;font:900 96px Archivo,sans-serif;color:#fff}
+  .circle.b{background:var(--bleu)}
+  .card{position:absolute;background:#fff;color:var(--nuit);border-radius:36px;padding:34px 40px;font:700 46px/1.25 Inter}
+  .stick{position:absolute;background:#fff;color:var(--nuit);border-radius:999px;padding:26px 44px;font:800 44px Archivo,sans-serif;white-space:nowrap}
+  .line{position:absolute;height:14px;border-radius:7px;background:var(--bleu-c);opacity:.7}
+  .arr{position:absolute;width:0;height:0}
+  .ph-stripe{position:absolute;left:-40px;width:1200px;height:18px;background:var(--rouge);transform:rotate(-8deg)}
+  .step{position:absolute;left:56px;right:56px;display:flex;align-items:center;gap:36px}
+  .step .n{flex:0 0 150px;height:150px;border-radius:50%;background:var(--rouge);display:flex;align-items:center;justify-content:center;font:900 92px Archivo,sans-serif;color:#fff}
+  .step .n.b{background:var(--bleu)}
+  .step .tx{font:800 52px/1.15 Archivo,sans-serif;letter-spacing:-.01em}
+  .phone{position:absolute;background:var(--nuit);border-radius:70px;border:14px solid #fff}
+  .bub{position:absolute;padding:24px 32px;border-radius:30px;font:700 38px/1.25 Inter;max-width:70%}
+  .bub.w{background:#fff;color:var(--nuit);border-bottom-left-radius:8px}
+  .bub.r{background:var(--rouge);color:#fff;border-bottom-right-radius:8px}
+  .bub.b{background:var(--bleu);color:#fff;border-bottom-right-radius:8px}
+  .split-top{position:absolute;left:0;right:0;top:0;height:50%;background:var(--rouge)}
+  .split-bot{position:absolute;left:0;right:0;bottom:0;height:50%;background:var(--bleu)}
+</style>
+</head>
+<body>
+
+<!-- ============ FACEBOOK · LUNDI · AFFICHE ============ -->
+<div class="wrapc"><h4>01 · Lundi · Facebook · Affiche (1080×1350)</h4>
+<div class="crea p bg-bleu" id="lun-fb-affiche">
+  <div class="logo"><img src="../assets/logo-fs-express.jpg" alt="Logo FS Express"></div>
+  <div class="k" style="top:300px;left:56px">Commerçants de Yaoundé</div>
+  <div class="t" style="top:360px;left:56px;font-size:150px;width:968px">Vous avez<br>vendu.</div>
+  <div class="t" style="top:660px;left:56px;font-size:130px"><span class="hl">Et après ?</span></div>
+  <div class="phone" style="left:200px;top:840px;width:680px;height:300px;border-radius:60px">
+    <div class="bub w" style="left:44px;top:28px">Où est mon colis ?</div>
+    <div class="bub r" style="right:44px;top:108px">Le livreur ne répond plus…</div>
+    <div class="bub w" style="left:44px;top:188px">L'argent ne rentre pas.</div>
+  </div>
+  <div class="cta" style="bottom:70px;font-size:40px">Commentez « Moi aussi » si ça vous est déjà arrivé.</div>
+</div></div>
+
+<!-- ============ INSTAGRAM · LUNDI · CARROUSEL 6 SLIDES ============ -->
+<div class="wrapc"><h4>02 · Lundi · Instagram · Carrousel 1/6 (1080×1350)</h4>
+<div class="crea p bg-bleu" id="lun-ig-car-1">
+  <div class="logo"><img src="../assets/logo-fs-express.jpg" alt="Logo FS Express"></div>
+  <div class="pg">01 / 06</div>
+  <div class="t" style="top:340px;left:56px;font-size:112px;width:968px">5 moments où un vendeur perd le contrôle de sa livraison</div>
+  <div class="card" style="left:56px;right:56px;top:880px;font-size:54px"><span style="color:var(--rouge);font-family:Archivo;font-weight:900">1.</span> Le livreur est injoignable.</div>
+  <div class="k" style="bottom:90px;left:56px">Glissez →</div>
+</div></div>
+
+<div class="wrapc"><h4>02 · Lundi · Instagram · Carrousel 2/6</h4>
+<div class="crea p bg-bleu" id="lun-ig-car-2">
+  <div class="logo"><img src="../assets/logo-fs-express.jpg" alt="Logo FS Express"></div>
+  <div class="pg">02 / 06</div>
+  <div class="t" style="top:330px;left:56px;font-size:330px;color:var(--rouge);-webkit-text-stroke:0">2</div>
+  <div class="t" style="top:700px;left:56px;font-size:110px;width:968px">Le client relance une 3<sup style="font-size:.5em">e</sup> fois.</div>
+  <div class="k" style="bottom:90px;left:56px">Glissez →</div>
+</div></div>
+
+<div class="wrapc"><h4>02 · Lundi · Instagram · Carrousel 3/6</h4>
+<div class="crea p bg-bleu" id="lun-ig-car-3">
+  <div class="logo"><img src="../assets/logo-fs-express.jpg" alt="Logo FS Express"></div>
+  <div class="pg">03 / 06</div>
+  <div class="t" style="top:330px;left:56px;font-size:330px;color:var(--rouge)">3</div>
+  <div class="t" style="top:700px;left:56px;font-size:110px;width:968px">La livraison est annulée.</div>
+  <div class="k" style="bottom:90px;left:56px">Glissez →</div>
+</div></div>
+
+<div class="wrapc"><h4>02 · Lundi · Instagram · Carrousel 4/6</h4>
+<div class="crea p bg-bleu" id="lun-ig-car-4">
+  <div class="logo"><img src="../assets/logo-fs-express.jpg" alt="Logo FS Express"></div>
+  <div class="pg">04 / 06</div>
+  <div class="t" style="top:330px;left:56px;font-size:330px;color:var(--rouge)">4</div>
+  <div class="t" style="top:700px;left:56px;font-size:110px;width:968px">La commande est refusée hors zone.</div>
+  <div class="k" style="bottom:90px;left:56px">Glissez →</div>
+</div></div>
+
+<div class="wrapc"><h4>02 · Lundi · Instagram · Carrousel 5/6</h4>
+<div class="crea p bg-bleu" id="lun-ig-car-5">
+  <div class="logo"><img src="../assets/logo-fs-express.jpg" alt="Logo FS Express"></div>
+  <div class="pg">05 / 06</div>
+  <div class="t" style="top:330px;left:56px;font-size:330px;color:var(--rouge)">5</div>
+  <div class="t" style="top:700px;left:56px;font-size:110px;width:968px">Le cash tarde à rentrer.</div>
+  <div class="k" style="bottom:90px;left:56px">Glissez →</div>
+</div></div>
+
+<div class="wrapc"><h4>02 · Lundi · Instagram · Carrousel 6/6 (appel de transition)</h4>
+<div class="crea p bg-nuit" id="lun-ig-car-6">
+  <div class="logo"><img src="../assets/logo-fs-express.jpg" alt="Logo FS Express"></div>
+  <div class="pg">06 / 06</div>
+  <div class="t" style="top:330px;left:56px;font-size:104px;width:968px">Vous avez fait le plus dur : vendre.</div>
+  <div class="body" style="top:640px;left:56px;right:56px;font-size:46px;width:968px">Ne laissez plus la livraison décider à votre place.</div>
+  <div class="card" style="left:56px;right:56px;top:830px;font-size:36px;font-weight:600;color:var(--nuit)">Guide gratuit : « 5 erreurs qui font perdre des ventes aux vendeurs en ligne à Yaoundé » <span style="color:var(--rouge);font-weight:800">(à confirmer)</span></div>
+  <div class="cta" style="bottom:70px;font-size:38px">Envoyez votre première livraison sur WhatsApp : [numéro FS Course]</div>
+</div></div>
+
+<!-- ============ TIKTOK · LUNDI · COUVERTURE SKETCH ============ -->
+<div class="wrapc"><h4>03 · Lundi · TikTok · Couverture du sketch 15–20 s (1080×1920)</h4>
+<div class="crea s bg-nuit" id="lun-tt-sketch-cover">
+  <div class="k" style="top:360px;left:56px">Sketch POV vendeur · 15–20 s</div>
+  <div class="t" style="top:520px;left:56px;font-size:150px;width:968px">Il est où<br>mon colis ?</div>
+  <div class="bub w" style="left:56px;top:880px;font-size:44px;max-width:80%">3<sup>e</sup> relance du client</div>
+  <div class="bub b" style="right:56px;top:1000px;font-size:44px;max-width:80%">Messagerie du livreur…</div>
+  <div class="note" style="top:1260px;font-size:44px;font-weight:500">Quand ton client te relance pour la 3<sup>e</sup> fois et que ton livreur ne décroche pas.</div>
+  <div class="note" style="bottom:90px;font-size:30px;opacity:.7">Pas de logo sauf la dernière seconde de la vidéo.</div>
+</div></div>
+
+<!-- ============ INSTAGRAM · MARDI · REEL COUVERTURE (aussi Facebook) ============ -->
+<div class="wrapc"><h4>04 · Mardi · Instagram + Facebook · Couverture du Reel 25–30 s (1080×1920)</h4>
+<div class="crea s bg-bleu" id="mar-reel-cover">
+  <div class="logo"><img src="../assets/logo-fs-express.jpg" alt="Logo FS Express"></div>
+  <div class="k" style="top:420px;left:56px">Reel · 25–30 s</div>
+  <div class="t" style="top:520px;left:56px;font-size:150px;width:968px">Vous avez fait le plus dur : vendre.</div>
+  <div class="t" style="top:1000px;left:56px;font-size:110px"><span class="hl">On s'occupe du reste.</span></div>
+  <div class="body" style="top:1220px;left:56px;right:56px;font-size:48px;width:968px">FS Course livre en 1 h partout à Yaoundé, ou c'est gratuit.</div>
+  <div class="cta" style="bottom:70px;font-size:36px">Envoyez votre première livraison sur WhatsApp : [numéro FS Course]</div>
+</div></div>
+
+<!-- ============ INSTAGRAM · MERCREDI · STORIES 3 ÉCRANS ============ -->
+<div class="wrapc"><h4>05 · Mercredi · Instagram · Story 1/3 (1080×1920)</h4>
+<div class="crea s bg-bleu" id="mer-ig-story-1">
+  <div class="logo"><img src="../assets/logo-fs-express.jpg" alt="Logo FS Express"></div>
+  <div class="t" style="top:600px;left:56px;font-size:170px;width:968px">Votre pire galère de livraison ?</div>
+  <div class="circle" style="right:70px;top:1220px;width:200px;height:200px;font-size:120px">?</div>
+  <div class="note" style="bottom:110px;font-size:40px">Répondez-nous en message →</div>
+</div></div>
+
+<div class="wrapc"><h4>05 · Mercredi · Instagram · Story 2/3 (sondage)</h4>
+<div class="crea s bg-nuit" id="mer-ig-story-2">
+  <div class="logo"><img src="../assets/logo-fs-express.jpg" alt="Logo FS Express"></div>
+  <div class="t" style="top:520px;left:56px;font-size:120px;width:968px">Votre pire galère avec les livreurs ?</div>
+  <div class="card" style="left:56px;right:56px;top:960px;font-size:40px;text-align:center;font-weight:800;font-family:Archivo;color:var(--nuit)">Votez 👇</div>
+  <div class="stick" style="left:56px;top:1100px;width:968px;font-size:52px;text-align:center">Livreur injoignable</div>
+  <div class="stick" style="left:56px;top:1260px;width:968px;font-size:52px;text-align:center">Retard</div>
+  <div class="stick" style="left:56px;top:1420px;width:968px;font-size:52px;text-align:center">Cash qui tarde</div>
+  <div class="stick" style="left:56px;top:1580px;width:968px;font-size:52px;text-align:center">Hors zone</div>
+</div></div>
+
+<div class="wrapc"><h4>05 · Mercredi · Instagram · Story 3/3</h4>
+<div class="crea s bg-rouge" id="mer-ig-story-3">
+  <div class="logo"><img src="../assets/logo-fs-express.jpg" alt="Logo FS Express"></div>
+  <div class="t" style="top:600px;left:56px;font-size:160px;width:968px">Répondez-nous en message.</div>
+  <div class="body" style="top:1230px;left:56px;right:56px;font-size:50px">Dites-nous ce qui vous arrive avec vos livreurs.</div>
+  <div class="cta" style="bottom:110px;font-size:38px">WhatsApp : [numéro FS Course]</div>
+</div></div>
+
+<!-- ============ TIKTOK · MERCREDI · AVANT / APRÈS COUVERTURE ============ -->
+<div class="wrapc"><h4>06 · Mercredi · TikTok · Couverture avant / après 20 s (1080×1920)</h4>
+<div class="crea s bg-nuit" id="mer-tt-avant-apres-cover">
+  <div class="split-top"></div>
+  <div class="split-bot"></div>
+  <div class="t" style="top:150px;left:56px;font-size:130px">AVANT</div>
+  <div class="body" style="top:360px;left:56px;right:56px;font-size:60px;font-weight:700;line-height:1.2">Le vendeur appelle le livreur 10 fois pour savoir où est le colis.</div>
+  <div class="t" style="top:1100px;left:56px;font-size:130px">APRÈS</div>
+  <div class="body" style="top:1310px;left:56px;right:56px;font-size:60px;font-weight:700;line-height:1.2">Un appel de validation avant la course et un interlocuteur dédié.</div>
+  <div class="logo" style="top:auto;bottom:56px;left:auto;right:56px"><img src="../assets/logo-fs-express.jpg" alt="Logo FS Express" style="height:70px"></div>
+</div></div>
+
+<!-- ============ FACEBOOK · JEUDI · AFFICHE 3 ÉTAPES ============ -->
+<div class="wrapc"><h4>07 · Jeudi · Facebook · Affiche 3 étapes (1080×1350)</h4>
+<div class="crea p bg-nuit" id="jeu-fb-etapes">
+  <div class="logo"><img src="../assets/logo-fs-express.jpg" alt="Logo FS Express"></div>
+  <div class="t" style="top:300px;left:56px;font-size:104px;width:968px">Livrer avec FS Course, c'est <span class="hl">3 étapes.</span></div>
+  <div class="step" style="top:650px"><div class="n">1</div><div class="tx">Vous envoyez la commande sur WhatsApp.</div></div>
+  <div class="step" style="top:820px"><div class="n b">2</div><div class="tx">Un livreur de votre zone la récupère.</div></div>
+  <div class="step" style="top:990px"><div class="n">3</div><div class="tx">Votre client est livré en 1 h, et votre argent revient vite.</div></div>
+  <div class="cta" style="bottom:40px;font-size:34px">Envoyez votre première livraison sur WhatsApp : [numéro FS Course]</div>
+</div></div>
+
+<!-- ============ INSTAGRAM · JEUDI · AFFICHE 1 H OU GRATUIT ============ -->
+<div class="wrapc"><h4>08 · Jeudi · Instagram · Affiche « 1 h ou gratuit » (1080×1350)</h4>
+<div class="crea p bg-rouge" id="jeu-ig-1h">
+  <div class="logo"><img src="../assets/logo-fs-express.jpg" alt="Logo FS Express"></div>
+  <div class="t" style="top:300px;left:56px;font-size:130px;width:968px">Votre client attend ?</div>
+  <div class="t" style="top:560px;left:56px;font-size:200px;width:968px;color:#fff">1 h</div>
+  <div class="t" style="top:760px;left:56px;font-size:88px;width:968px"><span class="hl">ou c'est gratuit.</span></div>
+  <div class="note" style="top:920px;font-size:36px">Conditions de la garantie (zones, délai, exclusions) : [à valider avant publication]</div>
+  <div class="cta" style="bottom:70px;font-size:38px">Écrivez-nous sur WhatsApp : [numéro FS Course]</div>
+</div></div>
+
+<!-- ============ INSTAGRAM · JEUDI · STORY 1 H OU GRATUIT ============ -->
+<div class="wrapc"><h4>08 · Jeudi · Instagram · Story « 1 h ou gratuit » (1080×1920)</h4>
+<div class="crea s bg-rouge" id="jeu-ig-story-1h">
+  <div class="logo"><img src="../assets/logo-fs-express.jpg" alt="Logo FS Express"></div>
+  <div class="t" style="top:560px;left:56px;font-size:150px;width:968px">Votre client attend ?</div>
+  <div class="t" style="top:900px;left:56px;font-size:340px;width:968px">1 h</div>
+  <div class="t" style="top:1260px;left:56px;font-size:90px;width:968px"><span class="hl">ou c'est gratuit.</span></div>
+  <div class="note" style="top:1420px;font-size:34px">Conditions : [zones, délai, exclusions — à valider]</div>
+  <div class="cta" style="bottom:110px;font-size:36px">Écrivez-nous sur WhatsApp : [numéro FS Course]</div>
+</div></div>
+
+<!-- ============ FACEBOOK · VENDREDI · POST QUESTION (1080×1080) ============ -->
+<div class="wrapc"><h4>09 · Vendredi · Facebook · Post question (1080×1080)</h4>
+<div class="crea q bg-blanc" id="ven-fb-question">
+  <div class="logo" style="background:var(--bleu);"><img src="../assets/logo-fs-express.jpg" alt="Logo FS Express" style="filter:none"></div>
+  <div class="t" style="top:230px;left:56px;font-size:96px;width:968px;color:var(--bleu)">Dans quelle zone de Yaoundé avez-vous le plus de mal à faire livrer ?</div>
+  <div class="t" style="top:760px;left:56px;font-size:60px;width:968px;color:var(--rouge)">On couvre toute la ville.</div>
+  <div class="cta red" style="bottom:56px;font-size:36px;left:56px;right:56px">Écrivez votre quartier en commentaire</div>
+</div></div>
+
+<!-- ============ TIKTOK · VENDREDI · COUVERTURE LIVRAISON RÉELLE ============ -->
+<div class="wrapc"><h4>10 · Vendredi · TikTok · Couverture livraison réelle 25–30 s (1080×1920)</h4>
+<div class="crea s bg-bleu" id="ven-tt-reelle-cover">
+  <div class="logo"><img src="../assets/logo-fs-express.jpg" alt="Logo FS Express"></div>
+  <div class="k" style="top:420px;left:56px">Vidéo réelle · 25–30 s</div>
+  <div class="t" style="top:520px;left:56px;font-size:150px;width:968px">Une vraie livraison, de A à Z.</div>
+  <div class="step" style="top:960px"><div class="n">1</div><div class="tx">Commande reçue sur WhatsApp</div></div>
+  <div class="step" style="top:1110px"><div class="n b">2</div><div class="tx">Le livreur récupère</div></div>
+  <div class="step" style="top:1260px"><div class="n">3</div><div class="tx">Le client reçoit</div></div>
+  <div class="step" style="top:1410px"><div class="n b">4</div><div class="tx">Le cash est reversé</div></div>
+  <div class="cta" style="bottom:110px;font-size:34px">Écrivez-nous sur WhatsApp : [numéro FS Course]</div>
+</div></div>
+
+<!-- ============ INSTAGRAM · SAMEDI · STORIES RÉCAP 3 ÉCRANS ============ -->
+<div class="wrapc"><h4>11 · Samedi · Instagram · Story récap 1/3 (1080×1920)</h4>
+<div class="crea s bg-bleu" id="sam-ig-story-1">
+  <div class="logo"><img src="../assets/logo-fs-express.jpg" alt="Logo FS Express"></div>
+  <div class="t" style="top:560px;left:56px;font-size:130px;width:968px">Vous avez été nombreux à répondre.</div>
+  <div class="body" style="top:1000px;left:56px;right:56px;font-size:54px;font-weight:700">Votre galère n°1 :</div>
+  <div class="t" style="top:1120px;left:56px;font-size:96px"><span class="hl">[résultat du sondage]</span></div>
+</div></div>
+
+<div class="wrapc"><h4>11 · Samedi · Instagram · Story récap 2/3</h4>
+<div class="crea s bg-nuit" id="sam-ig-story-2">
+  <div class="logo"><img src="../assets/logo-fs-express.jpg" alt="Logo FS Express"></div>
+  <div class="t" style="top:560px;left:56px;font-size:150px;width:968px">Le plan en 3 étapes.</div>
+  <div class="step" style="top:960px"><div class="n">1</div><div class="tx">Vous envoyez la commande</div></div>
+  <div class="step" style="top:1110px"><div class="n b">2</div><div class="tx">On la récupère</div></div>
+  <div class="step" style="top:1260px"><div class="n">3</div><div class="tx">Votre client est livré en 1 h</div></div>
+</div></div>
+
+<div class="wrapc"><h4>11 · Samedi · Instagram · Story récap 3/3</h4>
+<div class="crea s bg-rouge" id="sam-ig-story-3">
+  <div class="logo"><img src="../assets/logo-fs-express.jpg" alt="Logo FS Express"></div>
+  <div class="t" style="top:560px;left:56px;font-size:150px;width:968px">Ne perdez plus une vente à cause d'un livreur.</div>
+  <div class="cta" style="bottom:110px;font-size:36px">Envoyez votre première livraison sur WhatsApp : [numéro FS Course]</div>
+</div></div>
+
+</body>
+</html>
