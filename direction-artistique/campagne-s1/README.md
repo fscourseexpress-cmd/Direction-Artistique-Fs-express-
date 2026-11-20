@@ -19,6 +19,10 @@ Les PNG sont dans `png/` (taille réelle des formats). `creas.html` contient tou
 | Vendredi | TikTok | `ven-tt-reelle-cover.png` | couverture 1080×1920 (livraison réelle à filmer) |
 | Samedi | Instagram | `sam-ig-story-1.png` à `sam-ig-story-3.png` | stories 1080×1920 |
 
+## Nature des visuels
+
+Les visuels sont des illustrations vectorielles en relief 3D stylisé : livreur à tête surdimensionnée, main XXL, colis isométrique, scooter, téléphone en perspective, objets flottants, texte à extrusion. Ils ne sont pas des photos ni des rendus 3D réalistes. Pour la version finale du brief (photos de livreurs, scooters 3D texturés), il faut un shooting et un graphiste 3D.
+
 ## Ce qui reste à faire avant publication
 
 - **Vidéos** : le sketch (lundi), le Reel (mardi), l'avant/après (mercredi) et la livraison réelle (vendredi) ne sont que des couvertures. Il faut les tourner. La livraison réelle nécessite l'accord écrit du marchand.
