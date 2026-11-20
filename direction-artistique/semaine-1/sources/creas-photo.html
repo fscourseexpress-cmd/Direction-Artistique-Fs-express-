@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,700;0,900;1,900&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* Palette FS Express : bleu #1690C1, rouge #93241E, blanc + nuances */
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#fff;font-family:Inter,sans-serif}
+  .crea{position:relative;width:1080px;height:1350px;overflow:hidden;color:#fff;margin-bottom:20px}
+  .logo{position:absolute;top:56px;left:56px;background:#fff;border-radius:22px;padding:12px 18px;z-index:20;box-shadow:0 14px 30px rgba(0,0,0,.3)}
+  .logo img{height:84px;display:block}
+  .t{position:absolute;font-family:Archivo,sans-serif;font-weight:900;letter-spacing:-.035em;line-height:.92;z-index:15;white-space:nowrap}
+  .sh{text-shadow:0 10px 30px rgba(0,0,0,.35)}
+  .hl{display:inline-block;padding:.04em .18em .08em;border-radius:.14em}
+  .cta{position:absolute;left:56px;right:56px;bottom:50px;background:#fff;color:#93241E;border-radius:999px;padding:26px 40px;font:900 34px/1.2 Archivo,sans-serif;text-align:center;z-index:20;box-shadow:0 20px 44px rgba(0,0,0,.4)}
+  .item{position:absolute;left:56px;display:flex;align-items:center;gap:22px;z-index:15}
+  .ic{width:104px;height:104px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 30px rgba(0,0,0,.3);flex:0 0 104px}
+  .ic svg{width:58px;height:58px}
+  .lb{font:800 32px/1.12 Archivo,sans-serif;max-width:225px;text-shadow:0 6px 18px rgba(0,0,0,.35)}
+
+  /* A — livreurs en règle */
+  #a{background:radial-gradient(900px 800px at 75% 30%,#C2463B 0%,#93241E 45%,#5E1712 100%)}
+  #a .rider{position:absolute;left:430px;top:300px;width:900px;z-index:10;filter:drop-shadow(0 40px 50px rgba(0,0,0,.45))}
+  #a svg.hole{position:absolute;left:0;top:0;width:1080px;height:1350px;z-index:5}
+
+  /* B — le livreur ne décroche plus */
+  #b{background:#0A3D57}
+  #b .photo{position:absolute;left:0;top:60px;width:1080px;z-index:1}
+  #b .grad{position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(10,61,87,.95) 0%,rgba(10,61,87,.7) 22%,rgba(10,61,87,0) 42%,rgba(10,61,87,0) 62%,rgba(10,61,87,.75) 100%)}
+  .notif{position:absolute;left:56px;width:600px;background:rgba(255,255,255,.94);color:#0A3D57;border-radius:30px;padding:22px 26px;display:flex;align-items:center;gap:20px;z-index:12;box-shadow:0 20px 40px rgba(0,0,0,.35)}
+  .notif .av{width:66px;height:66px;border-radius:18px;background:#93241E;display:flex;align-items:center;justify-content:center;flex:0 0 66px}
+  .notif .av svg{width:36px;height:36px}
+  .notif b{display:block;font:800 30px Archivo,sans-serif}
+  .notif span{font:600 26px Inter;color:#93241E}
+  .notif .tm{margin-left:auto;font:600 24px Inter;color:#5B6B76}
+
+  /* C — votre argent revient */
+  #c{background:radial-gradient(900px 800px at 80% 20%,#3BB0E0 0%,#1690C1 40%,#0E6A96 75%,#0A4E70 100%)}
+  #c .band{position:absolute;left:-100px;top:1010px;width:1300px;height:120px;background:#93241E;transform:rotate(-7deg);z-index:2}
+  #c .card{position:absolute;left:446px;top:470px;width:590px;height:738px;background:#fff;padding:16px;border-radius:30px;transform:rotate(4deg);z-index:8;box-shadow:0 40px 70px rgba(0,0,0,.45)}
+  #c .card .ph{position:relative;width:100%;height:100%;border-radius:20px;overflow:hidden}
+  #c .card .ph img{width:100%;height:100%;object-fit:cover;display:block}
+  #c .sticker{position:absolute;background:#fff;border-radius:12px;padding:6px 8px;transform:rotate(-42deg);box-shadow:0 4px 10px rgba(0,0,0,.35)}
+  #c .sticker img{height:44px;display:block}
+  #c .tag{position:absolute;background:#93241E;color:#fff;font:900 26px Archivo,sans-serif;padding:10px 18px;border-radius:999px;transform:rotate(-4deg);box-shadow:0 8px 18px rgba(0,0,0,.35)}
+</style>
+</head>
+<body>
+
+<!-- ================= A · Mercredi · Facebook · « Des livreurs identifiés, assurés, en règle. » ================= -->
+<div class="crea" id="a">
+  <div class="logo"><img src="logo.jpg" alt="Logo FS Express"></div>
+  <svg class="hole" viewBox="0 0 1080 1350"><g id="holeg"></g></svg>
+  <div class="t sh" style="top:205px;left:56px;font-size:70px">Des livreurs</div>
+  <div class="t sh" style="top:282px;left:56px;font-size:96px;font-style:italic">identifiés,</div>
+  <div class="t sh" style="top:376px;left:56px;font-size:96px;font-style:italic">assurés,</div>
+  <div class="t" style="top:476px;left:56px;font-size:96px"><span class="hl" style="background:#fff;color:#93241E;box-shadow:0 14px 30px rgba(0,0,0,.3)">en règle.</span></div>
+  <img class="rider" src="livreur-fs.png" alt="">
+  <div class="item" style="top:668px">
+    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1690C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8" cy="12" r="2.5"/><path d="M13 10h5M13 14h4"/></svg></div>
+    <div class="lb">Permis vérifié</div>
+  </div>
+  <div class="item" style="top:808px">
+    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1690C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M8.5 12l2.5 2.5L16 9.5"/></svg></div>
+    <div class="lb">Assurance à jour</div>
+  </div>
+  <div class="item" style="top:948px">
+    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#1690C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="16" r="3.5"/><circle cx="18.5" cy="16" r="3.5"/><path d="M5.5 16l4-7h5l4 7M14.5 9l1.5-3h3"/></svg></div>
+    <div class="lb">Moto immatriculée</div>
+  </div>
+  <div class="cta">Envoyez votre première livraison sur WhatsApp : 687 53 53 73</div>
+</div>
+
+<!-- ================= B · Lundi · Facebook · « Le livreur ne décroche plus ? » ================= -->
+<div class="crea" id="b">
+  <img class="photo" src="dos-fs.jpg" alt="">
+  <div class="grad"></div>
+  <div class="t sh" style="top:80px;left:56px;font-size:104px">Le livreur ne</div>
+  <div class="t" style="top:190px;left:56px;font-size:104px"><span class="hl" style="background:#93241E">décroche plus ?</span></div>
+  <div class="notif" style="top:870px;transform:rotate(-2deg)">
+    <div class="av"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/><path d="M17 3l4 4M21 3l-4 4"/></svg></div>
+    <div><b>Livreur</b><span>Appel sans réponse</span></div><div class="tm">14:02</div>
+  </div>
+  <div class="notif" style="top:1000px;left:86px">
+    <div class="av"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/><path d="M17 3l4 4M21 3l-4 4"/></svg></div>
+    <div><b>Livreur</b><span>Appel sans réponse</span></div><div class="tm">14:09</div>
+  </div>
+  <div class="notif" style="top:1130px;transform:rotate(1.5deg)">
+    <div class="av"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/><path d="M17 3l4 4M21 3l-4 4"/></svg></div>
+    <div><b>Client</b><span>« Il est où mon colis ? »</span></div><div class="tm">14:21</div>
+  </div>
+  <div class="cta" style="right:auto;left:auto;right:56px;width:400px;padding:22px 30px;font-size:30px;bottom:56px">Racontez-nous en commentaire</div>
+  <div class="logo" style="top:auto;bottom:250px;left:auto;right:56px"><img src="logo.jpg" alt="Logo FS Express" style="height:64px"></div>
+</div>
+
+<!-- ================= C · Jeudi · Facebook · « Votre argent revient. Vite. » ================= -->
+<div class="crea" id="c">
+  <div class="band"></div>
+  <div class="logo"><img src="logo.jpg" alt="Logo FS Express"></div>
+  <div class="t sh" style="top:210px;left:56px;font-size:112px">Votre argent</div>
+  <div class="t sh" style="top:322px;left:56px;font-size:112px">revient. <span class="hl" style="background:#93241E;font-style:italic">Vite.</span></div>
+  <div class="card"><div class="ph">
+    <img src="remise-crop.jpg" alt="">
+    <svg style="position:absolute;left:180px;top:300px;width:200px;height:170px" viewBox="0 0 200 170"><path d="M30 80 C 20 30, 120 10, 170 50 C 200 80, 160 150, 90 150 C 40 150, 10 120, 30 80 Z M 40 60 C 70 30, 150 30, 175 70" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/></svg>
+    <div class="tag" style="left:28px;top:470px">Votre argent</div>
+    <div class="sticker" style="left:400px;top:255px"><img src="logo.jpg" alt=""></div>
+  </div></div>
+  <div class="item" style="top:540px">
+    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#93241E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg></div>
+    <div class="lb">Cash plafonné par livreur</div>
+  </div>
+  <div class="item" style="top:690px">
+    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#93241E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10 18h4M12 7v6M9.5 10.5L12 13l2.5-2.5"/></svg></div>
+    <div class="lb">Dépôt par Orange Money</div>
+  </div>
+  <div class="item" style="top:840px">
+    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#93241E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+    <div class="lb">Reversé rapidement</div>
+  </div>
+  <div class="cta">Posez vos questions sur WhatsApp : 687 53 53 73</div>
+</div>
+
+<script>
+  // Déchirure de papier : contour irrégulier, bord clair (envers du papier), fond lumineux
+  (function(){
+    const cx=805, cy=880, R=315, N=120;
+    let seed=7; const rnd=()=>{seed=(seed*16807)%2147483647;return seed/2147483647;};
+    const pts=(r0,amp)=>{const a=[];for(let i=0;i<N;i++){const t=i/N*Math.PI*2;const r=r0+(rnd()-.5)*amp+(i%2?amp*.35:-amp*.2);a.push([cx+Math.cos(t)*r*1.02,cy+Math.sin(t)*r*1.12]);}return a.map(p=>p.join(',')).join(' ');};
+    const g=document.getElementById('holeg');
+    g.innerHTML=`
+      <defs>
+        <radialGradient id="hin" cx="50%" cy="40%" r="60%"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".6" stop-color="#EAF6FC"/><stop offset="1" stop-color="#9FD3EC"/></radialGradient>
+        <filter id="hs" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#3A0E0A" flood-opacity=".55"/></filter>
+      </defs>
+      <polygon points="${pts(R+46,60)}" fill="#C2463B" filter="url(#hs)"/>
+      <polygon points="${pts(R+20,46)}" fill="#F4D9D5"/>
+      <polygon points="${pts(R,36)}" fill="url(#hin)"/>`;
+  })();
+</script>
+</body>
+</html>
