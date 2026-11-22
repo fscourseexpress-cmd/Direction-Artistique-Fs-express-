@@ -87,14 +87,7 @@ def font(size, bold=True):
     return ImageFont.load_default()
 W, H = 360, 740
 ui = Image.new('RGB', (W, H), (234, 247, 253)); d = ImageDraw.Draw(ui)
-d.rectangle([0, 0, W, 120], fill=(10, 61, 87)); d.text((24, 52), "Mes ventes du jour", font=font(26), fill='white')
-rows = [("Vendu", "54 500 F", (10, 61, 87)), ("Encaissé", "33 000 F", (22, 144, 193)), ("En attente", "21 500 F", (147, 36, 30))]
-y = 160
-for lab, val, col in rows:
-    d.rounded_rectangle([18, y, W-18, y+150], 22, fill='white')
-    d.text((40, y+22), lab, font=font(24, False), fill=(91, 107, 118)); d.text((40, y+62), val, font=font(44), fill=col)
-    y += 172
-d.rounded_rectangle([18, y+6, W-18, y+76], 35, fill=(147, 36, 30)); d.text((60, y+26), "Relancer le livreur", font=font(24), fill='white')
+d.rectangle([0, 0, W, 120], fill=(10, 61, 87)); d.text((24, 44), "FS Express", font=font(34), fill='white')
 src = np.float32([[0,0],[W,0],[W,H],[0,H]])
 dst = np.float32([[407,292],[578,302],[500,646],[338,630]])
 M = cv2.getPerspectiveTransform(src, dst)

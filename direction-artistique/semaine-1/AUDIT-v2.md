@@ -112,3 +112,11 @@ Légende : ✅ conforme · ❌ inventé ou modifié, à retirer · ❓ question 
 **DI-IG3** (2 stories) · Planning : « Story récap de la semaine, puis story sondage avec les 2 premiers sujets. »
 - ❓ Contenu de la story récap non fourni : « Votre semaine en 4 mots » est inventé.
 - ❌ Sondage à 3 réponses au lieu des 2 premiers sujets.
+
+## Suivi des corrections
+
+**Corrigé** (texte inventé retiré, visuel remis au planning) : LU-FB1 (notifications), ME-FB1 (libellés), LU-FB2 et LU-IG2 (surtitre, légendes, sous-titres, bulle, notifications, logo), LU-FB3 (logo en bas), LU-IG3 (fond de marque, sans photo), MA-FB1 (notification), MA-FB3 (montants de l'écran, pastille), MA-IG1 diapos 3 à 5 (notifications, compteur), MA-IG3 (suggestions), ME-FB3 diapo 4 (CTA seul), JE-FB1 (icônes à la place des photos, diapo 5 CTA seul), JE-IG2 (deux colonnes Peur / Engagement, citations retirées), JE-IG3 (texte du planning, rappel des 3 étapes), SA-FB1 (liste retirée), SA-FB3 (commerçant au centre, logo en bas), SA-IG3 (photo et étiquette retirées), DI-FB1 (sous-titre), DI-FB2 et DI-IG1 (bulles et sous-titres), DI-FB3 (titre et phrase), DI-IG3 (sondage à 2 réponses, récap en placeholder).
+
+**En attente de votre réponse** : LU-FB1 (garder la photo ou la refaire), LU-FB3 et SA-FB3 (titre, sans « livré en 1 h »), JE-FB1 diapo 4 (texte de l'étape 3), ME-IG3 (3e écran), JE-IG2 (engagement de « Angoisse, honte »), MA-IG1 (phrases à la voix du vendeur), JE-FB3 (messages de la conversation), ME-FB3-2 (zones), DI-IG3 (contenu du récap et sujets du sondage), JE-IG3 (« Envoyez-la nous »).
+
+**Non re-contrôlé** : le fichier `FS_Course_Planning_Semaine1_FinalVersion.xlsx` n'est pas dans le dépôt. Les textes qui ne figurent pas dans les points ci-dessus n'ont pas été vérifiés contre le planning.
