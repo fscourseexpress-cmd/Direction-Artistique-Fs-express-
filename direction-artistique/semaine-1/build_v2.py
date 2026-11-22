@@ -131,7 +131,6 @@ def car_lu(prefix, H, platform):
         grad("linear-gradient(180deg,rgba(10,61,87,.55) 0%,rgba(10,61,87,.05) 30%,rgba(10,61,87,.25) 55%,rgba(10,61,87,.97) 85%)") +
         logo() + pg("02 / 05") + numo("1", 820, 150, 260) +
         tb('<div class="t l sh">Le livreur injoignable.</div>', 56, (930 if big else 700), 968) +
-        tb('<div class="sub">Le colis est parti. Le livreur ne répond plus.</div>', 56, (1030 if big else 800), 968) +
         glissez(), f"{platform} · Carrousel 2/5")
     # 3 — retard : la photo et le titre, sans bulle ni sous-titre inventés
     cd = 600 if big else 520
@@ -151,7 +150,7 @@ def car_lu(prefix, H, platform):
     rows = ""
     y0 = 420 if big else 400
     step = 175 if big else 150
-    for i, ((src, pos, size), lab) in enumerate(zip(trio, ["Le livreur injoignable", "Le retard", "Le cash qui tarde"])):
+    for i, ((src, pos, size), lab) in enumerate(zip(trio, ["Le livreur injoignable", "Le retard qui s'allonge", "Le cash qui tarde à revenir"])):
         y = y0 + i * step
         rows += f'<div class="row-ch" style="top:{y}px;height:{step - 25}px"><b>{i + 1}</b><span>{lab}</span></div>'
         rows += circ(src, 1080 - 56 - (step - 25) - 6, y - 6, step - 13, pos, size, 6, "z-index:7")
@@ -180,7 +179,7 @@ add("LU-IG3", "s", "r",
     "Instagram · Story sondage")
 
 # =============================== MARDI ===============================
-add("MA-FB1", "p", "r",
+add("MA-FB1", "p", "fr",
     B.rings(980, 160, (520, 760, 980)) + logo() +
     '<div class="bigquote">“</div>' +
     tb('<div class="t xl sh" style="font-style:italic">Il va croire que je suis une arnaque.</div>', 56, 320, 968) +
@@ -241,12 +240,10 @@ add("MA-IG1-6", "p", "w",
     tb('<div class="sub" style="color:#0A3D57">Vous n\'êtes pas seul. Un commerçant devrait passer son temps à vendre, pas à courir après ses livraisons.</div>', 56, 560, 460) +
     cta("Enregistrez et envoyez à un vendeur qui en a besoin", "red", fs=30), "Instagram · Carrousel 6/6")
 
-add("MA-IG3", "s", "r",
+add("MA-IG3", "s", "fr",
     B.rings(850, 380, (600, 820, 1040)) + logo(64, 120) +
-    tb('<div class="k">Terminez la phrase</div>', 64, 330, 900) +
-    tb('<div class="t l sh">Un commerçant devrait passer son temps à…</div>', 64, 390, 952) +
-    arrow_draw(560, 760, 300, 180, "#fff", False, 8) +
-    tb(B.qsticker("Complétez la phrase"), 64, 960, 952) +
+    tb('<div class="k">Terminez la phrase</div>', 64, 470, 900) +
+    tb(B.qsticker("Un commerçant devrait passer son temps à…"), 64, 570, 952) +
     '<div class="k abs" style="left:64px;bottom:120px">Répondez à la story ↑</div>',
     "Instagram · Story question")
 
@@ -285,7 +282,6 @@ add("ME-IG3-2", "s", "b",
     B.rings(540, 1240, (900, 1100, 1300)) + logo(64, 120) + pg("2 / 3") +
     tb('<div class="k">Nos engagements</div>', 64, 300, 900) +
     tb('<div class="t xl sh">Argent reversé <span class="hl r">vite.</span></div>', 64, 360, 952) +
-    tb('<div class="sub">Cash plafonné par livreur, reversé rapidement.</div>', 64, 700, 952) +
     '<div class="cph abs" style="left:190px;top:900px;width:700px;height:700px;background-image:url(assets/remise-fs.jpg);background-size:1700px auto;background-position:-344px -945px"></div>' +
     '<div class="cring abs" style="left:160px;top:870px;width:760px;height:760px"></div>' +
     ring_draw(380, 1180, 300, 190, "#fff", 7, -8),
@@ -344,10 +340,10 @@ add("JE-FB3", "p", "b",
 
 pairs = [
     ("Angoisse, honte", "« Mon client attend et je ne sais rien. »", "Un interlocuteur dédié qui vous répond.", "chat"),
-    ("Méfiance", "« Je ne connais pas ce livreur. »", "Des livreurs identifiés, assurés, en règle.", "shield"),
-    ("Cash", "« Et si mon argent disparaît ? »", "Cash plafonné par livreur et reversé vite.", "cash"),
-    ("Perte de contrôle", "« Je ne sais pas où est mon colis. »", "Un appel de validation avant chaque course.", "phone"),
-    ("Commandes refusées", "« Personne ne va là-bas. »", "Toute la ville couverte.", "pin"),
+    ("Méfiance", "« Je ne connais pas ce livreur. »", "Livreurs identifiés.", "shield"),
+    ("Cash", "« Et si mon argent disparaît ? »", "Plafonné et reversé vite.", "cash"),
+    ("Perte de contrôle", "« Je ne sais pas où est mon colis. »", "Appel avant chaque course.", "phone"),
+    ("Commandes refusées", "« Personne ne va là-bas. »", "Toute la ville.", "pin"),
 ]
 add("JE-IG2-1", "p", "r",
     full(V2 + "agent-telephone@2x.jpg", "center 25%") +
@@ -363,7 +359,7 @@ for i, (lab, fear, eng, icn) in enumerate(pairs, start=2):
         '<div class="fcol"></div><div class="ecol"></div>' +
         tb(f'<div class="pl" style="color:#93241E">Peur</div><div class="fname">{lab}</div>', 96, 380, 390) +
         icon_disc(596, 380, 170, icn, "#fff", "#1690C1") +
-        tb(f'<div class="pl" style="color:#fff">Engagement FS Express</div><div class="engt2">{eng}</div>', 596, 600, 390) +
+        tb(f'<div class="pl" style="color:#fff">Engagement</div><div class="engt2">{eng}</div>', 596, 600, 390) +
         end, f"Instagram · Carrousel {i}/6")
 
 add("JE-IG3", "s", "b",
@@ -378,8 +374,8 @@ add("JE-IG3", "s", "b",
     "Instagram · Story lien")
 
 # =============================== VENDREDI ===============================
-add("VE-IG2-MODELE", "p", "r",
-    B.rings(900, 300, (560, 780, 1000)) + logo() + pg("MODÈLE") +
+add("VE-IG2-MODELE", "p", "fr",
+    B.rings(900, 300, (560, 780, 1000)) + logo(56, 56, 56) + pg("MODÈLE") +
     '<div class="bigquote">“</div>' +
     tb('<div class="t l sh" style="font-style:italic">[Citation du commerçant]</div>', 56, 360, 968) +
     '<div class="phold abs" style="left:56px;top:640px">Photo du commerçant<br>(avec accord)</div>' +
@@ -424,7 +420,8 @@ for i, (av, ap, icn) in enumerate(ba, start=2):
 
 add("SA-IG3", "s", "b",
     B.rings(900, 300, (600, 820, 1040)) + logo(64, 120) +
-    tb(B.qsticker("Dans un an, votre boutique ressemble à quoi&nbsp;?"), 64, 760, 952),
+    tb(B.qsticker("Dans un an, votre boutique ressemble à quoi&nbsp;?"), 64, 760, 952) +
+    '<div class="k abs" style="left:64px;bottom:120px">Répondez à la story ↑</div>',
     "Instagram · Story question")
 
 # =============================== DIMANCHE ===============================
@@ -478,14 +475,16 @@ car_di("DI-IG1", P, "Instagram")
 
 add("DI-IG3-1", "s", "n",
     logo(64, 120) + pg("1 / 2") +
-    ph(V2 + "agent-pouce@2x.jpg", 120, 260, 840, 760, "center 25%", "cover", -2) +
-    tb('<div class="k">Récap de la semaine</div>', 64, 1080, 900) +
-    tb('<div class="t l sh">[Contenu du récap à fournir]</div>', 64, 1130, 952),
+    ph(V2 + "agent-pouce@2x.jpg", 120, 230, 840, 700, "center 25%", "cover", -2) +
+    tb('<div class="k">Récap de la semaine</div>', 64, 980, 900) +
+    tb('<div class="t m sh">Cette semaine, on a parlé de ce que vivent les vendeurs en ligne à Yaoundé.</div>', 64, 1050, 952) +
+    tb('<div class="words"><span>Le livreur injoignable</span><span>La honte</span><span>Le cash qui tarde</span></div>', 64, 1390, 952) +
+    tb('<div class="sub">Merci pour vos réponses.</div>', 64, 1600, 952),
     "Instagram · Story récap 1/2")
 add("DI-IG3-2", "s", "r",
     B.rings(880, 420, (600, 820, 1040)) + logo(64, 120) + pg("2 / 2") +
     tb('<div class="t l sh">Quel sujet pour la semaine prochaine&nbsp;?</div>', 64, 420, 952) +
-    tb(B.poll("Sondage", ["[Sujet 1 à confirmer]", "[Sujet 2 à confirmer]"]), 64, 820, 952) +
+    tb(B.poll("Sondage", ["L'emballage", "Les retours clients"]), 64, 820, 952) +
     '<div class="k abs" style="left:64px;bottom:120px">Votez dans le sondage ↑</div>',
     "Instagram · Story sondage 2/2")
 
@@ -548,13 +547,14 @@ CSS2 = """
 .phold.abs{width:240px;height:240px}
 .thumb.abs{z-index:3}
 .note.abs{z-index:6}
+.crea.fr{background:#93241E}
 .idisc{border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 30px 60px rgba(0,0,0,.35);z-index:6;border:10px solid #fff}
 .idisc svg{width:100%;height:100%}
 .fcol,.ecol{position:absolute;top:300px;width:470px;height:800px;border-radius:44px;z-index:2}
 .fcol{left:56px;background:#FBEAE8}
 .ecol{left:554px;background:#1690C1}
 .fname{font:900 70px/1.02 Archivo,sans-serif;color:#5E1712;letter-spacing:-.03em;font-style:italic}
-.engt2{font:900 62px/1.1 Archivo,sans-serif;color:#fff;letter-spacing:-.02em}
+.engt2{font:900 56px/1.1 Archivo,sans-serif;color:#fff;letter-spacing:-.02em}
 .slist{display:flex;flex-direction:column;gap:18px}
 .srow{display:flex;align-items:center;gap:24px;background:#EAF6FC;color:#0A3D57;border-radius:30px;padding:22px 28px;font:800 36px/1.2 Archivo,sans-serif}
 .srow b{width:76px;height:76px;flex:0 0 76px;border-radius:50%;background:#93241E;color:#fff;display:flex;align-items:center;justify-content:center;font-size:42px}

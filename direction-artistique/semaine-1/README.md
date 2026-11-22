@@ -69,7 +69,7 @@ Photos utilisées : `assets/v2/`, retouchées par `sources/retouche-photos-v2.py
 
 Ces corrections suivent `AUDIT-v2.md` : texte et visuel inventés retirés, mise en page remise au planning. Le planning reste la seule source du texte.
 
-- **Placeholders à remplir** (le texte vient de la cliente) : `[Contenu du récap à fournir]` (DI-IG3-1), `[Sujet 1 à confirmer]` et `[Sujet 2 à confirmer]` (DI-IG3-2), `[Liste des zones à compléter]` (ME-FB3-2).
+- **Placeholder à remplir** : `[Liste des zones à compléter]` (ME-FB3-2), comme dans le planning. Le récap et le sondage de DI-IG3 reprennent maintenant les textes du planning.
 - **Logo discret** : en bas à droite sur LU-FB3 et SA-FB3, petit en haut à gauche sur la diapo 5 de LU-FB2 et LU-IG2.
 - **Trois créas validées** (LU-FB1, ME-FB1, JE-FB2) : leur source est `sources/creas-photo.html`. Pour les réexporter dans `png-v2/` : `node sources/export-creas-photo.js`.
 - **Écran du téléphone** (MA-FB3) : sans montants. Il est généré par l'étape 5 de `sources/retouche-photos-v2.py`.

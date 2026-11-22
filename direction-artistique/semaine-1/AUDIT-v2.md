@@ -120,3 +120,28 @@ Légende : ✅ conforme · ❌ inventé ou modifié, à retirer · ❓ question 
 **En attente de votre réponse** : LU-FB1 (garder la photo ou la refaire), LU-FB3 et SA-FB3 (titre, sans « livré en 1 h »), JE-FB1 diapo 4 (texte de l'étape 3), ME-IG3 (3e écran), JE-IG2 (engagement de « Angoisse, honte »), MA-IG1 (phrases à la voix du vendeur), JE-FB3 (messages de la conversation), ME-FB3-2 (zones), DI-IG3 (contenu du récap et sujets du sondage), JE-IG3 (« Envoyez-la nous »).
 
 **Non re-contrôlé** : le fichier `FS_Course_Planning_Semaine1_FinalVersion.xlsx` n'est pas dans le dépôt. Les textes qui ne figurent pas dans les points ci-dessus n'ont pas été vérifiés contre le planning.
+
+## Deuxième passage : avec le planning
+
+Le planning `FS_Course_Planning_Semaine1_FinalVersion.xlsx` a été reçu. Il tranche plusieurs points de l'audit.
+
+**Corrigé selon le planning**
+- Fond uni demandé : MA-FB1, MA-IG3 et VE-IG2 (modèle), au lieu d'un dégradé.
+- Textes exacts : diapo 5 de LU-FB2 et LU-IG2 (« Le retard qui s'allonge », « Le cash qui tarde à revenir ») ; JE-IG2 (« Livreurs identifiés », « Plafonné et reversé vite », « Appel avant chaque course », « Toute la ville », libellé « Engagement »).
+- Retiré, car absent du planning : sous-phrase de LU-FB2 diapo 2 et de ME-IG3 diapo 2.
+- MA-IG3 : sticker question « Un commerçant devrait passer son temps à… », avec le kicker « Terminez la phrase ».
+- SA-IG3 : CTA « Répondez à la story » ajouté.
+- DI-IG3 : sondage aux deux premiers sujets du planning (« L'emballage », « Les retours clients »). Récap de la story repris du texte de DI-FB3.
+- ME-FB1 : logo discret (plus petit, en haut à droite).
+
+**Le planning ne tranche pas (votre décision)**
+- LU-FB1 : le planning demande « un commerçant qui fixe son téléphone ». La version validée montre un livreur de dos. La version commerçante (vendeuse-cash, recadrée) montre encore les billets du bas, qui ne sont pas des francs CFA.
+- LU-FB3 et SA-FB3 : titre prévu avec la garantie. En place : « Vous vendez. On livre. » (thème du planning) pour LU-FB3, « Vendez partout à Yaoundé. » pour SA-FB3.
+- JE-IG2, « Angoisse, honte » : le planning ne donne que « 1 h ou gratuit ». En place : « Un interlocuteur dédié qui vous répond. » (texte de JE-FB3).
+- ME-IG3, écran 3 : « Un appel de validation avant chaque course. » (texte de JE-FB3). JE-FB1, étape 3 : le texte du planning sans « en 1 h ».
+- MA-IG1 : les quatre phrases à la voix du vendeur ne sont pas dans le planning.
+- JE-FB3 : les messages de la conversation (le planning demande un échange réel, avec accord, ou une maquette).
+- ME-FB3-2 : zones à compléter (crochets du planning).
+- JE-IG3 : le planning écrit « Envoyez-la nous ». La forme « Envoyez-la-nous » est l'orthographe avec traits d'union.
+
+**Non modifié** : la pastille « Votre argent » de JE-FB2 n'est pas dans le brief du planning. Le visuel est validé, je l'ai laissé.
