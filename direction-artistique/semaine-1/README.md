@@ -46,3 +46,21 @@ node export.js DI-FB3   # 2e passe pour le récap (il reprend des vignettes)
 - **JE-FB2** : détail « dépôt par Orange Money » à vérifier avec l'équipe opérations.
 - **DI-FB1, DI-FB2, DI-IG1** : le guide « 5 erreurs » doit être prêt avant dimanche.
 - **VE-IG2-MODELE** : citation, nom, activité et photo du commerçant à remplacer, avec son accord.
+
+## Version 2 (22 novembre) — chaque créa composée à part
+
+Dossier `png-v2/` : 67 PNG, soit les 23 publications refaites une par une avec photos, plus les 3 déjà validées (LU-FB1, ME-FB1, JE-FB2).
+
+```
+python3 build_v2.py       # écrit creas-v2.html
+node export_v2.js         # exporte png-v2/*.png
+node export_v2.js DI-FB3  # 2e passe pour le récap (il reprend des vignettes)
+```
+
+Photos utilisées : `assets/v2/`, retouchées par `sources/retouche-photos-v2.py` (détourages, casque orange passé en rouge, taxis jaunes désaturés, logos mal orthographiés des colis remplacés par le vrai logo, écran vert du téléphone remplacé par un écran FS Express).
+
+À vérifier pour la v2 :
+- Les photos en grille ont été générées : les logos FS Express sur les polos et les affiches de fond sont des imitations, pas le vrai logo. Seuls ceux des colis ont été remplacés.
+- Les billets de la photo « vendeuse-cash » ne sont pas des francs CFA.
+- `livreuse-colis-STOCK-FILIGRANE.jpg` n'est pas utilisée : filigrane « AfroVerse Stock » et logo d'une autre marque sur le polo.
+- `livreur-au-telephone.jpg` est petite (280×330) : utilisée seulement en petit format.
