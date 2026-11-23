@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>FS Express · Texte animé</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..900&family=Inter:wght@400;600;700&display=swap">
+<style>
+  /* Vidéo verticale 1080 x 1920, 20 s, sans son.
+     Photos de l'ambassadeur en plans (zooms, coupes) ; texte de marque affiché mot à mot.
+     Aucune voix, aucune synchronisation labiale : le visage ne parle pas.
+     Palette FS Express : bleu #1690C1, rouge #93241E, navy #0A3D57, blanc cassé #FBFBF8. */
+  html, body { margin: 0; padding: 0; background: #000; }
+  #stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: 'Inter', Arial, sans-serif; }
+  .scene { position: absolute; inset: 0; opacity: 0; overflow: hidden; }
+  .bg { position: absolute; left: -160px; top: -160px; width: 1400px; height: 2240px; object-fit: cover; filter: blur(34px) saturate(1.15); }
+  .tint { position: absolute; inset: 0; }
+  .abs { position: absolute; }
+  .c { left: 0; right: 0; text-align: center; }
+  .h { font-family: 'Archivo', Arial, sans-serif; font-weight: 900; letter-spacing: -0.02em; line-height: 1.02; color: #FBFBF8; }
+  .kick { font-family: 'Inter', Arial, sans-serif; font-weight: 700; font-size: 34px; line-height: 1; letter-spacing: 0.22em; text-transform: uppercase; color: #FBFBF8; }
+  .hl { background: #93241E; color: #FBFBF8; padding: 0 0.16em; border-radius: 0.14em; }
+  .card { position: absolute; left: 140px; top: 240px; width: 800px; height: 800px; box-sizing: border-box; border: 10px solid #FBFBF8; border-radius: 56px; overflow: hidden; box-shadow: 0 40px 90px rgba(0, 0, 0, 0.35); }
+  .card img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; transform-origin: 50% 50%; }
+  .cap { position: absolute; left: 90px; right: 90px; top: 1090px; text-align: center; font-family: 'Archivo', Arial, sans-serif; font-weight: 900; font-size: 80px; line-height: 1.08; letter-spacing: -0.015em; color: #FBFBF8; }
+  .w { display: inline-block; }
+  .logobox { width: 300px; height: 300px; border-radius: 60px; background: #FBFBF8; display: flex; align-items: center; justify-content: center; box-shadow: 0 30px 70px rgba(0, 0, 0, 0.25); }
+  .logobox img { width: 240px; height: auto; display: block; }
+  .pill { display: inline-block; background: #FBFBF8; color: #93241E; border-radius: 999px; font-family: 'Archivo', Arial, sans-serif; font-weight: 900; font-size: 116px; line-height: 1; padding: 0.2em 0.42em 0.22em; letter-spacing: -0.01em; }
+</style>
+</head>
+<body>
+<div id="stage">
+
+  <!-- 1 · accroche : 0 à 4,0 s -->
+  <section class="scene" id="s1" style="background:#0A3D57">
+    <img class="bg" src="assets/poses/pose-1.jpg" alt="">
+    <div class="tint" style="background:rgba(10,61,87,0.6)"></div>
+    <div class="abs c kick" id="k1" style="top:150px">Ambassadeur FS Express</div>
+    <div class="card" id="c1"><img src="assets/poses/pose-1.jpg" alt="Ambassadeur FS Express"></div>
+    <div class="cap" id="cap1"><span class="hl"><span class="w">FS</span> <span class="w">Express,</span></span> <span class="w">c’est</span> <span class="w">votre</span> <span class="w">partenaire</span><br><span class="w">pour</span> <span class="w">des</span> <span class="w">livraisons</span> <span class="w">simples,</span> <span class="w">rapides</span> <span class="w">et</span> <span class="w">fiables.</span></div>
+  </section>
+
+  <!-- 2 · livraison : 4,0 à 7,0 s -->
+  <section class="scene" id="s2" style="background:#1690C1">
+    <img class="bg" src="assets/poses/pose-2.jpg" alt="">
+    <div class="tint" style="background:rgba(22,144,193,0.62)"></div>
+    <div class="card" id="c2"><img src="assets/poses/pose-2.jpg" alt="Ambassadeur FS Express"></div>
+    <div class="cap" id="cap2"><span class="w">Nous</span> <span class="w">facilitons</span> <span class="w">l’envoi</span> <span class="w">et</span> <span class="w">la</span> <span class="w">réception</span> <span class="w">de</span> <span class="hl"><span class="w">vos</span> <span class="w">colis,</span></span></div>
+  </section>
+
+  <!-- 3 · service : 7,0 à 10,6 s -->
+  <section class="scene" id="s3" style="background:#0A3D57">
+    <img class="bg" src="assets/poses/pose-3.jpg" alt="">
+    <div class="tint" style="background:rgba(10,61,87,0.62)"></div>
+    <div class="card" id="c3"><img src="assets/poses/pose-3.jpg" alt="Ambassadeur FS Express"></div>
+    <div class="cap" id="cap3"><span class="w">en</span> <span class="w">vous</span> <span class="w">offrant</span> <span class="w">un</span> <span class="w">service</span><br><span class="w">pensé</span> <span class="w">pour</span> <span class="w">vous</span> <span class="w">faire</span> <span class="hl"><span class="w">gagner</span> <span class="w">du</span> <span class="w">temps</span></span></div>
+  </section>
+
+  <!-- 4 · quotidien : 10,6 à 13,0 s -->
+  <section class="scene" id="s4" style="background:#1690C1">
+    <img class="bg" src="assets/poses/pose-4.jpg" alt="">
+    <div class="tint" style="background:rgba(22,144,193,0.62)"></div>
+    <div class="card" id="c4"><img src="assets/poses/pose-4.jpg" alt="Ambassadeur FS Express"></div>
+    <div class="cap" id="cap4"><span class="w">et</span> <span class="w">vous</span> <span class="w">simplifier</span> <span class="w">le</span> <span class="hl"><span class="w">quotidien.</span></span></div>
+  </section>
+
+  <!-- 5 · conclusion : 13,0 à 16,6 s -->
+  <section class="scene" id="s5" style="background:#0A3D57">
+    <img class="bg" src="assets/poses/pose-7.jpg" alt="">
+    <div class="tint" style="background:rgba(10,61,87,0.62)"></div>
+    <div class="card" id="c5"><img src="assets/poses/pose-7.jpg" alt="Ambassadeur FS Express"></div>
+    <div class="cap" id="cap5"><span class="w">Avec</span> <span class="w">FS</span> <span class="w">Express,</span> <span class="w">vos</span> <span class="w">colis</span> <span class="w">avancent,</span><br><span class="hl"><span class="w">vous</span> <span class="w">aussi&nbsp;!</span></span></div>
+  </section>
+
+  <!-- 6 · action : 16,6 à 20,0 s -->
+  <section class="scene" id="s6" style="background:#1690C1">
+    <div class="abs" id="logo6" style="left:390px; top:420px"><div class="logobox"><img src="assets/logo.jpg" alt="Logo FS Express"></div></div>
+    <div class="abs c h" id="wm6" style="top:790px; font-size:120px">FS Express</div>
+    <div class="abs c" id="sub6" style="top:1040px; left:0; right:0; font-family:'Inter', Arial, sans-serif; font-weight:600; font-size:48px; line-height:1.3; color:#FBFBF8; padding:0 90px">Envoyez votre première livraison sur WhatsApp&nbsp;:</div>
+    <div class="abs c" id="pill6" style="top:1230px; left:0; right:0"><span class="pill">687 53 53 73</span></div>
+  </section>
+
+</div>
+
+<script>
+  const $ = (id) => document.getElementById(id);
+  const clamp01 = (x) => Math.max(0, Math.min(1, x));
+  const prog = (t, a, b) => clamp01((t - a) / (b - a));
+  const easeOut = (p) => 1 - Math.pow(1 - p, 3);
+  const easeBack = (p) => { const c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(p - 1, 3) + c1 * Math.pow(p - 1, 2); };
+  function place(el, o) {
+    const x = o.x || 0, y = o.y || 0, s = (o.s === undefined ? 1 : o.s), r = o.r || 0;
+    el.style.transform = 'translate(' + x + 'px, ' + y + 'px) rotate(' + r + 'deg) scale(' + s + ')';
+    if (o.o !== undefined) el.style.opacity = o.o;
+  }
+
+  // Plans en coupe sèche (pas de fondu).
+  const SCENES = { s1: [0.0, 4.0], s2: [4.0, 7.0], s3: [7.0, 10.6], s4: [10.6, 13.0], s5: [13.0, 16.6], s6: [16.6, 20.0] };
+
+  // Plan photo : la carte arrive, le texte apparaît mot à mot, la photo fait un zoom lent.
+  function photoScene(n, a, b, t) {
+    const lt = t - a, d = b - a;
+    const p1 = prog(lt, 0, 0.45);
+    place($('c' + n), { y: 80 * (1 - easeOut(p1)), s: 0.94 + 0.06 * easeBack(p1), o: easeOut(p1) });
+    document.querySelector('#c' + n + ' img').style.transform = 'scale(' + (1 + 0.07 * prog(lt, 0, d)) + ')';
+    if ($('k' + n)) {
+      const pk = prog(lt, 0.25, 0.6);
+      place($('k' + n), { y: 20 * (1 - easeOut(pk)), o: easeOut(pk) });
+    }
+    document.querySelectorAll('#cap' + n + ' .w').forEach((w, i) => {
+      const s = 0.3 + i * 0.11;
+      const p = prog(lt, s, s + 0.35);
+      place(w, { y: 36 * (1 - easeOut(p)), o: easeOut(p) });
+    });
+  }
+
+  // Plan final : logo, marque, appel WhatsApp, numéro.
+  function endScene(a, t) {
+    const lt = t - a;
+    const pl = prog(lt, 0.1, 0.6);
+    place($('logo6'), { s: 0.2 + 0.8 * easeBack(pl), r: -10 * (1 - easeOut(pl)), o: easeOut(pl) });
+    const pw = prog(lt, 0.3, 0.6);
+    place($('wm6'), { y: 40 * (1 - easeOut(pw)), o: easeOut(pw) });
+    const ps = prog(lt, 0.7, 1.0);
+    place($('sub6'), { y: 24 * (1 - easeOut(ps)), o: easeOut(ps) });
+    const pp = prog(lt, 1.1, 1.5);
+    place($('pill6'), { s: 0.6 + 0.4 * easeBack(pp), o: easeOut(pp) });
+  }
+
+  window.setT = function (t) {
+    for (const id in SCENES) {
+      const [a, b] = SCENES[id];
+      $(id).style.opacity = (t >= a && t < b) ? 1 : 0;
+    }
+    photoScene(1, 0.0, 4.0, t);
+    photoScene(2, 4.0, 7.0, t);
+    photoScene(3, 7.0, 10.6, t);
+    photoScene(4, 10.6, 13.0, t);
+    photoScene(5, 13.0, 16.6, t);
+    endScene(16.6, t);
+  };
+  window.setT(0);
+</script>
+</body>
+</html>
