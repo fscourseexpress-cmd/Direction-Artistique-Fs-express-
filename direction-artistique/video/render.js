@@ -7,16 +7,18 @@ const fs = require('fs');
 const path = require('path');
 
 const FPS = 30;
-const DURATION = 18.0;
+// Options : PAGE (défaut index.html), OUT (défaut qui-sommes-nous.mp4), DURATION (défaut 18 s).
+const DURATION = Number(process.env.DURATION || 18.0);
 const FRAMES = Math.round(FPS * DURATION);
-const OUT = path.join(__dirname, 'qui-sommes-nous.mp4');
+const OUT = path.join(__dirname, process.env.OUT || 'qui-sommes-nous.mp4');
+const PAGE = process.env.PAGE || 'index.html';
 const REVIEW = process.env.REVIEW_DIR;
 const REVIEW_AT = [1.0, 3.6, 5.0, 8.0, 12.0, 15.6, 17.4];
 
 (async () => {
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 1080, height: 1920 }, deviceScaleFactor: 1 });
-  await page.goto('file://' + path.join(__dirname, 'index.html'), { waitUntil: 'load' });
+  await page.goto('file://' + path.join(__dirname, PAGE), { waitUntil: 'load' });
   await page.evaluate(() => document.fonts.ready);
   await page.waitForTimeout(1500);
 
