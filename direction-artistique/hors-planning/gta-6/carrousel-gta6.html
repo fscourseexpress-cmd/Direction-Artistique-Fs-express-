@@ -27,6 +27,13 @@
   .dots { right: 110px; top: 1231px; display: flex; gap: 14px; }
   .dots i { width: 18px; height: 18px; border-radius: 50%; background: rgba(42, 27, 77, 0.3); display: block; }
   .dots i.on { background: var(--night); }
+  /* Fond : rayons de coucher de soleil et grain de pellicule (effets propres, aucun élément du jeu). */
+  .slide::before { content: ''; position: absolute; inset: 0; pointer-events: none;
+    background: repeating-conic-gradient(from 0deg at 50% 46%, rgba(255, 226, 190, 0.10) 0deg 4deg, rgba(255, 226, 190, 0) 4deg 14deg);
+    -webkit-mask-image: radial-gradient(circle at 50% 46%, #000 0%, rgba(0, 0, 0, 0.5) 30%, transparent 65%);
+            mask-image: radial-gradient(circle at 50% 46%, #000 0%, rgba(0, 0, 0, 0.5) 30%, transparent 65%); }
+  .slide::after { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0.08;
+    background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
   .sun { position: absolute; border-radius: 50%; background: radial-gradient(circle, #FFEBD0 0%, #F7B58A 40%, rgba(242, 135, 90, 0) 70%); }
   .card-paper { background: var(--paper); color: var(--navy); border-radius: 40px; box-shadow: 0 30px 70px rgba(20, 8, 40, 0.35); }
   .bar { height: 18px; border-radius: 9px; background: rgba(10, 61, 87, 0.15); overflow: hidden; }
@@ -69,6 +76,45 @@
       <circle cx="150" cy="222" r="62" fill="#93241E"/>
       <text x="150" y="240" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="900" font-size="60" fill="#FBFBF8">FS</text>
     </symbol>
+    <symbol id="sym-skyline" viewBox="0 0 1080 250">
+      <g fill="#1E1140" fill-opacity="0.9">
+        <rect x="0" y="175" width="60" height="75"/>
+        <rect x="60" y="150" width="45" height="100"/>
+        <rect x="105" y="190" width="70" height="60"/>
+        <rect x="175" y="140" width="50" height="110"/>
+        <rect x="225" y="170" width="55" height="80"/>
+        <rect x="280" y="150" width="80" height="100"/>
+        <rect x="360" y="185" width="45" height="65"/>
+        <rect x="405" y="135" width="65" height="115"/>
+        <rect x="470" y="170" width="50" height="80"/>
+        <rect x="520" y="150" width="85" height="100"/>
+        <rect x="605" y="180" width="55" height="70"/>
+        <rect x="660" y="140" width="70" height="110"/>
+        <rect x="730" y="175" width="50" height="75"/>
+        <rect x="780" y="160" width="75" height="90"/>
+        <rect x="855" y="175" width="65" height="75"/>
+        <rect x="920" y="165" width="70" height="85"/>
+        <rect x="990" y="190" width="90" height="60"/>
+      </g>
+      <g fill="#FFD9A6" fill-opacity="0.45">
+        <rect x="18" y="190" width="6" height="8"/>
+        <rect x="34" y="196" width="6" height="8"/>
+        <rect x="122" y="208" width="6" height="8"/>
+        <rect x="190" y="160" width="6" height="8"/>
+        <rect x="238" y="186" width="6" height="8"/>
+        <rect x="298" y="166" width="6" height="8"/>
+        <rect x="316" y="172" width="6" height="8"/>
+        <rect x="420" y="160" width="6" height="8"/>
+        <rect x="478" y="186" width="6" height="8"/>
+        <rect x="538" y="166" width="6" height="8"/>
+        <rect x="560" y="172" width="6" height="8"/>
+        <rect x="676" y="160" width="6" height="8"/>
+        <rect x="742" y="192" width="6" height="8"/>
+        <rect x="798" y="180" width="6" height="8"/>
+        <rect x="936" y="184" width="6" height="8"/>
+        <rect x="1010" y="206" width="6" height="8"/>
+      </g>
+    </symbol>
     <symbol id="sym-pin" viewBox="0 0 120 160">
       <path d="M60 4 C28 4 4 28 4 60 C4 100 60 156 60 156 C60 156 116 100 116 60 C116 28 92 4 60 4 Z" fill="#93241E"/>
       <circle cx="60" cy="60" r="22" fill="#FBFBF8"/>
@@ -78,6 +124,7 @@
 
 <!-- 1 · couverture -->
 <section class="slide" id="slide-1">
+  <svg class="abs" style="left:0; top:1100px" width="1080" height="250" aria-hidden="true"><use href="#sym-skyline" width="1080" height="250"/></svg>
   <div class="sun" style="left:170px; top:170px; width:740px; height:740px;"></div>
   <div class="abs tag">FS Express</div>
   <div class="abs" style="right:110px; top:96px;"><div class="logochip"><img src="../../video/assets/logo.jpg" alt="Logo FS Express"></div></div>
@@ -91,6 +138,7 @@
 
 <!-- 2 · colis récupéré -->
 <section class="slide" id="slide-2">
+  <svg class="abs" style="left:0; top:1100px" width="1080" height="250" aria-hidden="true"><use href="#sym-skyline" width="1080" height="250"/></svg>
   <div class="abs tag">FS Express</div>
   <div class="abs num">01</div>
   <div class="abs card-paper" style="left:110px; top:250px; width:440px; padding:26px 30px; box-sizing:border-box;">
@@ -107,6 +155,7 @@
 
 <!-- 3 · en route -->
 <section class="slide" id="slide-3">
+  <svg class="abs" style="left:0; top:1100px" width="1080" height="250" aria-hidden="true"><use href="#sym-skyline" width="1080" height="250"/></svg>
   <div class="abs tag">FS Express</div>
   <div class="abs num">02</div>
   <div class="abs card-paper" style="left:110px; top:262px; width:860px; height:500px; overflow:hidden;">
@@ -128,6 +177,7 @@
 
 <!-- 4 · mission accomplie -->
 <section class="slide" id="slide-4">
+  <svg class="abs" style="left:0; top:1100px" width="1080" height="250" aria-hidden="true"><use href="#sym-skyline" width="1080" height="250"/></svg>
   <div class="abs tag">FS Express</div>
   <div class="abs num">03</div>
   <div class="sun" style="left:250px; top:190px; width:580px; height:580px;"></div>
