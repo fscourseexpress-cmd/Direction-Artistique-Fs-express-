@@ -31,7 +31,7 @@ def bubbles(items, big=False):
     out = ['<div class="chat">']
     for text, side in items:
         cls = ('bub-r' if side == 'r' else 'bub-l') + (' big' if big else '')
-        out.append(f'<div class="bub {cls}">{text}</div>')
+        out.append(f'<div class="bub {cls}">{fr(text)}</div>')
     out.append('</div>')
     return ''.join(out)
 
@@ -63,9 +63,9 @@ def clock():
             '<path d="M200 200 L356 290 A180 180 0 0 1 44 290 Z" fill="#0A3D57"/>'
             '<path d="M200 200 L44 290 A180 180 0 0 1 200 20 Z" fill="#93241E"/>'
             '<circle cx="200" cy="200" r="22" fill="#FBFBF8"/>'
-            '<text x="260" y="130" font-family="Archivo" font-weight="900" font-size="34" fill="#FBFBF8">Matin</text>'
-            '<text x="120" y="330" font-family="Archivo" font-weight="900" font-size="34" fill="#FBFBF8">Après-midi</text>'
-            '<text x="40" y="150" font-family="Archivo" font-weight="900" font-size="34" fill="#FBFBF8">Soirée</text>'
+            '<text x="215" y="118" font-family="Archivo" font-weight="900" font-size="32" fill="#FBFBF8">Matin</text>'
+            '<text x="95" y="338" font-family="Archivo" font-weight="900" font-size="30" fill="#FBFBF8">Après-midi</text>'
+            '<text x="50" y="150" font-family="Archivo" font-weight="900" font-size="32" fill="#FBFBF8">Soirée</text>'
             '</svg>')
 
 
@@ -97,6 +97,83 @@ def parcel(color=B, tape=R, w=520):
             f'<polygon points="360,140 460,40 460,300 360,400" fill="{N}"/>'
             f'<rect x="60" y="250" width="300" height="44" fill="{tape}"/>'
             '<rect x="110" y="170" width="120" height="66" fill="#FBFBF8"/></svg>')
+
+
+def fr(s):
+    """Espaces insécables avant ? ! : et dans les guillemets français."""
+    if not s:
+        return s
+    for a, b in [(' ?', '&nbsp;?'), (' !', '&nbsp;!'), (' :', '&nbsp;:'), ('« ', '«&nbsp;'), (' »', '&nbsp;»')]:
+        s = s.replace(a, b)
+    return s
+
+
+def box3(x, y, w, h, col=B):
+    top = f'<polygon points="{x},{y} {x+40},{y-40} {x+w+40},{y-40} {x+w},{y}" fill="{S}"/>'
+    side = f'<polygon points="{x+w},{y} {x+w+40},{y-40} {x+w+40},{y+h-40} {x+w},{y+h}" fill="{N}"/>'
+    front = f'<rect x="{x}" y="{y}" width="{w}" height="{h}" fill="{col}"/>'
+    tape = f'<rect x="{x+w*0.4}" y="{y}" width="{w*0.2}" height="{h}" fill="{R}"/>'
+    return top + side + front + tape
+
+
+def stack(w=460):
+    return (f'<svg width="{w}" height="{int(w*0.7)}" viewBox="0 0 600 420" fill="none">'
+            + box3(40, 250, 240, 140, B) + box3(300, 250, 230, 140, N) + box3(170, 110, 240, 130, B) + '</svg>')
+
+
+def tshirt(col=C, edge=N, w=300):
+    return (f'<svg width="{w}" height="{w}" viewBox="0 0 300 300"><path d="M100 40 L40 80 L12 150 L62 172 L62 282 '
+            f'L238 282 L238 172 L288 150 L260 80 L200 40 Q150 72 100 40 Z" fill="{col}" stroke="{edge}" '
+            f'stroke-width="6" stroke-linejoin="round"/></svg>')
+
+
+def figure(cx, top, col, s=1.0):
+    r = 38 * s
+    return (f'<circle cx="{cx}" cy="{top + r}" r="{r}" fill="{col}"/>'
+            f'<rect x="{cx - 70*s}" y="{top + 2*r + 8}" width="{140*s}" height="{250*s}" rx="{50*s}" fill="{col}"/>')
+
+
+def handover(w=700):
+    return (f'<svg width="{w}" height="{int(w*0.55)}" viewBox="0 0 800 440" fill="none">'
+            + figure(170, 30, R) + figure(630, 30, N) + box3(300, 300, 200, 110, B) + '</svg>')
+
+
+def stall(w=300):
+    stripes = ''.join(f'<rect x="{40+i*120}" y="40" width="120" height="120" fill="{B if i % 2 == 0 else R}"/>' for i in range(6))
+    return (f'<svg width="{w}" height="{int(w*0.525)}" viewBox="0 0 800 420" fill="none">{stripes}'
+            f'<rect x="40" y="150" width="720" height="16" fill="{N}"/>'
+            f'<rect x="60" y="260" width="680" height="24" fill="{N}"/>'
+            f'<rect x="60" y="284" width="16" height="110" fill="{N}"/><rect x="724" y="284" width="16" height="110" fill="{N}"/>'
+            f'<circle cx="170" cy="240" r="50" fill="{B}"/><circle cx="320" cy="236" r="56" fill="{R}"/>'
+            f'<circle cx="470" cy="240" r="50" fill="{N}"/><circle cx="620" cy="236" r="54" fill="{B}"/></svg>')
+
+
+def track():
+    dots = ''.join(f'<circle cx="{x}" cy="130" r="58" fill="{c}"/><text x="{x}" y="146" text-anchor="middle" '
+                   f'font-family="Archivo" font-weight="900" font-size="60" fill="#FBFBF8">{n}</text>'
+                   for n, x, c in [(1, 110, B), (2, 330, N), (3, 550, R), (4, 770, B)])
+    return (f'<svg width="900" height="260" viewBox="0 0 900 260" fill="none">'
+            f'<rect x="60" y="124" width="780" height="12" fill="{S}"/>{dots}</svg>')
+
+
+def five():
+    cols = [B, N, R, B, N]
+    return ('<div class="center" style="gap:22px">' + ''.join(
+        f'<span class="num" style="background:{c};width:150px;height:150px;flex-basis:150px;line-height:150px;font-size:76px">{i}</span>'
+        for i, c in enumerate(cols, 1)) + '</div>')
+
+
+def ic_checks(icon, items, color=R):
+    return f'<div class="center">{ic(icon, 230, color)}</div>' + checks(items, color)
+
+
+def row_icons(items, size=200):
+    return '<div class="center" style="gap:40px">' + ''.join(ic(n, size, c) for n, c in items) + '</div>'
+
+
+def parcels4():
+    return ('<div class="grid" style="grid-template-columns:1fr 1fr;gap:20px">'
+            + ''.join(f'<div class="center">{parcel(c, R, 300)}</div>' for c in [B, R, N, B]) + '</div>')
 
 
 def wave():
@@ -132,9 +209,10 @@ def people_grid():
 
 def post(name, kicker, title, body, vis, cta, bg=C, fg=N, count=None, fs=None, story=False):
     """Un visuel 1080x1350 (feed) ou 1080x1920 (story)."""
+    title, body, cta = fr(title), fr(body), fr(cta)
     if fs is None:
         n = len(re.sub(r'<[^>]+>', '', title))
-        fs = 104 if n < 34 else 92 if n < 60 else 78 if n < 100 else 66
+        fs = 100 if n < 34 else 88 if n < 60 else 76 if n < 100 else 64
         if story:
             fs = int(fs * 1.25)
     kick = f'<div class="kick" style="color:{S if bg in (N, B, R) else B}">{kicker}</div>' if kicker else ''
@@ -180,7 +258,7 @@ def lundi():
                   bubbles([('Le prix de la livraison ?', 'l'), ('Est-ce que ça va arriver ?', 'l'), ('Je commande demain', 'r')]),
                   'Répondez en commentaire.', count=None))
     s.append(carousel(f'{d}_09h00_IG', [
-        dict(kicker='Messages WhatsApp', title='Les 5 messages qui annoncent une commande <span class="hl">mouvementée</span>', vis=''),
+        dict(kicker='Messages WhatsApp', title='Les 5 messages qui annoncent une commande <span class="hl">mouvementée</span>', vis=f'<div class="center">{ic("chat", 300, B)}</div>'),
         dict(kicker='Message 1 / 5', title='« Bonjour, c’est disponible ? »', vis=bubbles([('Bonjour, c’est disponible ?', 'l')], big=True), fs=86),
         dict(kicker='Message 2 / 5', title='« Inbox svp »', vis=bubbles([('Inbox svp', 'l')], big=True), fs=86),
         dict(kicker='Message 3 / 5', title='« Le dernier prix ? »', vis=bubbles([('Le dernier prix ?', 'l')], big=True), fs=86),
@@ -194,11 +272,11 @@ def lundi():
                   'Vous êtes où quand on vous dit ça ? En commentaire.'))
     s.append(carousel(f'{d}_13h00_IG', [
         dict(kicker='Culture de la livraison', title='Le dictionnaire non officiel de la <span class="hl">livraison</span>',
-             body='Une expression par slide. Lesquelles reconnaissez-vous ?', vis=''),
-        dict(kicker='Expression · 1 / 3', title='« JE SUIS <span class="hl">EN BAS</span> »', body='Expression qui peut désigner plusieurs endroits différents.', vis=''),
-        dict(kicker='Expression · 2 / 3', title='« ÇA <span class="hl">ARRIVE</span> »', body='Notion de temps parfois mystérieuse.', vis=''),
-        dict(kicker='Expression · 3 / 3', title='« ENVOYEZ LA <span class="hl">LOCALISATION</span> »', body='Phrase qui peut sauver une livraison.', vis=''),
-        dict(kicker='À vous de jouer', title='Quelle expression avons-nous <span class="hl">oubliée ?</span>', vis='',
+             body='Une expression par slide. Lesquelles reconnaissez-vous ?', vis=f'<div class="center">{ic("book", 300, B)}</div>'),
+        dict(kicker='Expression · 1 / 3', title='« JE SUIS <span class="hl">EN BAS</span> »', body='Expression qui peut désigner plusieurs endroits différents.', vis=f'<div class="center">{ic("pin", 260, B)}</div>'),
+        dict(kicker='Expression · 2 / 3', title='« ÇA <span class="hl">ARRIVE</span> »', body='Notion de temps parfois mystérieuse.', vis=f'<div class="center">{ic("clock", 260, R)}</div>'),
+        dict(kicker='Expression · 3 / 3', title='« ENVOYEZ LA <span class="hl">LOCALISATION</span> »', body='Phrase qui peut sauver une livraison.', vis=f'<div class="center">{ic("map", 260, N)}</div>'),
+        dict(kicker='À vous de jouer', title='Quelle expression avons-nous <span class="hl">oubliée ?</span>', vis=f'<div class="center">{ic("chat", 260, B)}</div>',
              cta='Ajoutez la vôtre en commentaire.'),
     ]))
     s.append(post(f'{d}_17h00_IG', 'Question',
@@ -208,7 +286,7 @@ def lundi():
     s.append(post(f'{d}_18h00_FB', 'Post participatif',
                   'Le produit camerounais que vous recommandez <span class="hl">les yeux fermés</span>', '',
                   f'<div class="grid" style="grid-template-columns:1fr 1fr">'
-                  f'<div class="ph-tile">{photo("tshirt.jpg", 220, "50% 60%")}<div class="lab">Mode</div></div>'
+                  f'<div class="card" style="background:{B};color:{C};min-height:200px;align-items:center;justify-content:space-between">{tshirt(C, N, 150)}<div>Mode</div></div>'
                   f'<div class="card" style="background:{S};color:{N};min-height:200px">{ic("star",70,N)}<div>Beauté</div></div>'
                   f'<div class="card" style="background:{R};color:{C};min-height:130px">{ic("zap",60,C)}<div>Gourmandises</div></div>'
                   f'<div class="card" style="background:{N};color:{C};min-height:130px">{ic("box",60,C)}<div>Artisanat</div></div>'
@@ -234,7 +312,7 @@ def story_block(name, st):
     zone = f'<div class="zone">{H.escape(st["zone"])}</div>' if st.get('zone') else ''
     kick = f'<div class="kick" style="color:{S}">{st["kicker"]}</div>' if st.get('kicker') else ''
     fs = st.get('fs', 150)
-    vis = st.get('vis', '')
+    vis = st.get('vis') or f'<div class="center">{ic(st.get("icon", "chat"), 380, S if bg != S else N)}</div>'
     return (f'<section class="story" data-name="{name}" style="background:{bg};color:{fg}">'
             f'<div class="top story-top">{LOGO}</div>'
             f'<div class="main story-main">{kick}<div class="t" style="font-size:{fs}px;color:{fg}">{st["title"]}</div>'
@@ -260,17 +338,17 @@ def mardi():
                          ('pin', 'C · Une position partagée et un repère clair', N, C)], cols=1, h=170),
                   'Réponse et explication en commentaire.'))
     s.append(carousel(f'{d}_09h00_IG', [
-        dict(kicker='Vendre sur WhatsApp', title='Les infos à envoyer <span class="hl">avant de confirmer</span>', body='Une commande, quatre points à vérifier.', vis=''),
-        dict(kicker='1 · Le produit', title='Produit et quantité', vis=checks(['Le produit concerné', 'La quantité', 'La taille ou le modèle'])),
-        dict(kicker='2 · Le prix', title='Le prix total', vis=checks(['Le prix total affiché', 'Les frais éventuels annoncés']) ),
-        dict(kicker='3 · La réception', title='Les informations de réception', body='À confirmer en privé, jamais en public.', vis=checks(['Le lieu de remise', 'Un numéro joignable', 'Les modalités convenues'])),
+        dict(kicker='Vendre sur WhatsApp', title='Les infos à envoyer <span class="hl">avant de confirmer</span>', body='Une commande, quatre points à vérifier.', vis=f'<div class="center">{ic("chat", 260, B)}</div>'),
+        dict(kicker='1 · Le produit', title='Produit et quantité', vis=ic_checks('box', ['Le produit concerné', 'La quantité', 'La taille ou le modèle'], B)),
+        dict(kicker='2 · Le prix', title='Le prix total', vis=ic_checks('cash', ['Le prix total affiché', 'Les frais éventuels annoncés'], B)),
+        dict(kicker='3 · La réception', title='Les informations de réception', body='À confirmer en privé, jamais en public.', vis=ic_checks('pin', ['Le lieu de remise', 'Un numéro joignable', 'Les modalités convenues'], B)),
     ], ))
     s.append(carousel(f'{d}_13h00_IG', [
-        dict(kicker='Avant l’envoi', title='Votre colis est-il <span class="hl">prêt à voyager ?</span>', vis=photo('cartons-sol.jpg', 620, '50% 60%')),
-        dict(kicker='Étape 1 · 4', title='L’emballage est <span class="hl">bien fermé</span>', body='Un carton solide, fermé sur tous les côtés.', vis=photo('pyramide.jpg', 620, '50% 50%')),
+        dict(kicker='Avant l’envoi', title='Votre colis est-il <span class="hl">prêt à voyager ?</span>', vis=f'<div class="center">{stack(600)}</div>'),
+        dict(kicker='Étape 1 · 4', title='L’emballage est <span class="hl">bien fermé</span>', body='Un carton solide, fermé sur tous les côtés.', vis=f'<div class="center">{parcel(B, R, 440)}</div>'),
         dict(kicker='Étape 2 · 4', title='Les informations sont <span class="hl">vérifiées</span>', body='Vérifiées en privé, sans les afficher publiquement.',
-             vis=checks(['Le nom et le lieu de remise', 'Le numéro joignable'], R)),
-        dict(kicker='Étape 3 · 4', title='Le colis est <span class="hl">prêt à être remis</span>', vis=photo('livreur-remise.jpg', 620, '50% 40%'),
+             vis=ic_checks('shield', ['Le nom et le lieu de remise', 'Le numéro joignable'], R)),
+        dict(kicker='Étape 3 · 4', title='Le colis est <span class="hl">prêt à être remis</span>', vis=f'<div class="center">{handover(640)}</div>',
              cta='Enregistrez ce carrousel.'),
     ]))
     s.append(post(f'{d}_17h00_IG', 'Reel photo',
@@ -291,19 +369,19 @@ def mercredi():
                   'Le détail qui vous rassure <span class="hl">le plus</span> quand vous commandez en ligne', '',
                   cards([('star', 'Les avis clients', B, C), ('eye', 'Les vraies photos', N, C),
                          ('chat', 'Une réponse rapide', R, C), ('box', 'Des infos claires sur la livraison', L, N)], cols=2, h=300),
-                  'Lequel compte le plus pour vous ?'))
+                  'Lequel compte le plus pour vous ?', fs=70))
     s.append(post(f'{d}_13h00_FB', 'Question',
                   'Commerçants : à quelle heure vos clients <span class="hl">écrivent-ils le plus ?</span>', '',
                   f'<div class="center">{clock()}</div>', 'Dites-nous la plage qui reçoit le plus de messages.'))
     s.append(post(f'{d}_18h00_FB', 'Post communautaire',
                   'Quel marché ou quelle boutique te fait <span class="hl">toujours revenir ?</span>', '',
-                  photo('vendeuse-rose.jpg', 640, '50% 35%'), 'Dites-nous lequel, et pourquoi.'))
+                  f'<div class="center">{stall(700)}</div>', 'Dites-nous lequel, et pourquoi.'))
     s.append(carousel(f'{d}_09h00_IG', [
-        dict(kicker='Storytelling', title='Le parcours d’un colis <span class="hl">avant qu’il arrive chez vous</span>', vis=''),
+        dict(kicker='Storytelling', title='Le parcours d’un colis <span class="hl">avant qu’il arrive chez vous</span>', vis=f'<div class="center">{track()}</div>'),
         dict(kicker='Étape 1 · 4', title='La commande est confirmée', vis=parcel(B, R, 460)),
         dict(kicker='Étape 2 · 4', title='Le colis est préparé', vis=parcel(N, R, 460)),
         dict(kicker='Étape 3 · 4', title='Les informations sont vérifiées', vis=cards([('shield', 'Adresse et numéro vérifiés en privé', L, N)], cols=1, h=380)),
-        dict(kicker='Étape 4 · 4', title='Prise en charge et remise', vis=photo('livreur-remise.jpg', 620, '50% 45%'),
+        dict(kicker='Étape 4 · 4', title='Prise en charge et remise', vis=f'<div class="center">{handover(640)}</div>',
              cta='Et vous, à quelle étape êtes-vous le plus attentif ?'),
     ]))
     s.append(post(f'{d}_13h00_IG', 'Affiche · mythe ou réalité',
@@ -342,16 +420,16 @@ def jeudi():
                   '<div class="rrow"><span>Modalités</span><b>Convenues ensemble</b></div></div>',
                   'Vérifiez le récapitulatif avant de confirmer.'))
     s.append(carousel(f'{d}_09h00_IG', [
-        dict(kicker='Humour', title='Quand on vous dit « je suis à côté » : <span class="hl">4 interprétations</span>', vis=''),
+        dict(kicker='Humour', title='Quand on vous dit « je suis à côté » : <span class="hl">4 interprétations</span>', vis=row_icons([('pin', B), ('store', N), ('zap', R), ('lock', B)], 190)),
         dict(kicker='Interprétation 1 · 4', title='Près du carrefour', vis=cards([('pin', 'Le grand carrefour, après le feu', B, C)], cols=1, h=400)),
         dict(kicker='Interprétation 2 · 4', title='Derrière la boutique', vis=cards([('store', 'La porte à côté de la boutique', N, C)], cols=1, h=400)),
         dict(kicker='Interprétation 3 · 4', title='Après le snack', vis=cards([('zap', 'Le snack du coin, à gauche', R, C)], cols=1, h=400)),
         dict(kicker='Interprétation 4 · 4', title='Près du portail', vis=cards([('lock', 'Le portail bleu, le deuxième', L, N)], cols=1, h=400)),
-        dict(kicker='À vous de jouer', title='Quelle expression <span class="hl">avons-nous oubliée ?</span>', cta='Ajoutez la vôtre en commentaire.'),
+        dict(kicker='À vous de jouer', title='Quelle expression <span class="hl">avons-nous oubliée ?</span>', vis=f'<div class="center">{ic("chat", 260, B)}</div>', cta='Ajoutez la vôtre en commentaire.'),
     ]))
     s.append(carousel(f'{d}_13h00_IG', [
-        dict(kicker='5 détails', title='5 détails qui rendent une boutique en ligne <span class="hl">plus rassurante</span>', vis=''),
-        dict(kicker='Détail 1 · 5', title='Des photos fidèles au produit', vis=photo('tshirt.jpg', 620, '50% 50%')),
+        dict(kicker='5 détails', title='5 détails qui rendent une boutique en ligne <span class="hl">plus rassurante</span>', vis=five()),
+        dict(kicker='Détail 1 · 5', title='Des photos fidèles au produit', vis=f'<div class="center">{tshirt(B, N, 460)}</div>'),
         dict(kicker='Détail 2 · 5', title='Des prix faciles à trouver', vis=cards([('cash', 'Le prix visible avant de payer', B, C)], cols=1, h=400)),
         dict(kicker='Détail 3 · 5', title='Des réponses claires', vis=cards([('chat', 'Une question, une réponse précise', N, C)], cols=1, h=400)),
         dict(kicker='Détail 4 · 5', title='Des conditions de commande compréhensibles', vis=cards([('shield', 'Ce qui est convenu, écrit noir sur blanc', L, N)], cols=1, h=400)),
@@ -386,7 +464,7 @@ def vendredi():
                   steps(['Confirmer le numéro joignable', 'Vérifier le lieu de remise', 'Préparer le colis'], N),
                   'Vrai ou faux ? Votre réponse en commentaire.', fs=78))
     s.append(carousel(f'{d}_09h00_IG', [
-        dict(kicker='Mini-guide', title='Avant de faire un dépôt pour une commande : <span class="hl">les vérifications utiles</span>', vis=''),
+        dict(kicker='Mini-guide', title='Avant de faire un dépôt pour une commande : <span class="hl">les vérifications utiles</span>', vis=f'<div class="center">{ic("phone", 300, B)}</div>'),
         dict(kicker='1 · La page du vendeur', title='Vérifier la page du vendeur', vis=cards([('store', 'Le nom et les informations de la boutique', B, C)], cols=1, h=400)),
         dict(kicker='2 · Le produit', title='Relire les détails du produit', vis=cards([('box', 'Taille, couleur, caractéristiques', N, C)], cols=1, h=400)),
         dict(kicker='3 · Le montant', title='Confirmer le montant total', vis=cards([('cash', 'Le total avant de payer', R, C)], cols=1, h=400)),
@@ -394,7 +472,7 @@ def vendredi():
              cta='Une question sur un dépôt ? En commentaire.'),
     ]))
     s.append(carousel(f'{d}_13h00_IG', [
-        dict(kicker='Checklist', title='Avant de valider une commande, <span class="hl">vérifiez ces 4 choses</span>', vis=''),
+        dict(kicker='Checklist', title='Avant de valider une commande, <span class="hl">vérifiez ces 4 choses</span>', vis=f'<div class="center">{ic("check", 300, R)}</div>'),
         dict(kicker='1 · Le prix', title='Le prix total', vis=f'<div class="center">{ic('cash',230,R)}</div>'+checks(['Le total est affiché avant de payer'], R)),
         dict(kicker='2 · Le produit', title='Les détails du produit', vis=f'<div class="center">{ic('box',230,R)}</div>'+checks(['Les caractéristiques sont claires'], R)),
         dict(kicker='3 · Le vendeur', title='Les informations du vendeur', vis=f'<div class="center">{ic('store',230,R)}</div>'+checks(['Un contact est indiqué'], R)),
@@ -422,33 +500,33 @@ def samedi():
                   'Les commerçants <span class="hl">qui font vivre nos timelines</span>',
                   'Derrière chaque page, il y a une personne qui crée, vend, répond et prépare des commandes.',
                   f'<div class="grid" style="grid-template-columns:1fr 1fr">'
-                  f'<div class="ph-tile">{photo("vendeuse-telephone.jpg", 380, "50% 30%")}</div>'
-                  f'<div class="ph-tile">{photo("commercante-boutique.jpg", 380, "50% 30%")}</div>'
-                  f'<div class="ph-tile">{photo("tshirt.jpg", 260, "50% 50%")}</div>'
+                  f'<div class="card" style="background:{L};min-height:260px;align-items:center;justify-content:center">{stall(260)}</div>'
+                  f'<div class="card" style="background:{N};min-height:260px;align-items:center;justify-content:center">{stack(260)}</div>'
+                  f'<div class="card" style="background:{R};min-height:260px;align-items:center;justify-content:center">{tshirt(C, N, 200)}</div>'
                   f'<div class="card" style="background:{N};color:{C};min-height:260px">{ic("star",70,C)}<div>Mode · Beauté · Gourmandises</div></div></div>',
                   'Taguez le commerçant que vous suivez.', fs=80))
     s.append(post(f'{d}_13h00_FB', 'Post valorisation',
                   'Un samedi pour soutenir <span class="hl">les petits commerces de Yaoundé</span>', 'Découvrez, recommandez, partagez une petite entreprise locale.',
-                  photo('vendeuse-rose.jpg', 600, '50% 35%'), 'Recommandez une petite boutique en commentaire.', fs=80))
+                  photo('vendeuse-rose.jpg', 470, '50% 35%'), 'Recommandez une petite boutique en commentaire.', fs=80))
     s.append(post(f'{d}_18h00_FB', 'Question bilan',
                   'Cette semaine, quelle situation de livraison <span class="hl">vous a fait rire ?</span>', '',
                   bubbles([('Il a sonné… à la mauvaise porte', 'l'), ('Le colis était chez la voisine !', 'r')]) +
                   f'<div class="center">{parcel(B, R, 300)}</div>',
                   'Racontez-la en commentaire.', fs=78))
     s.append(carousel(f'{d}_09h00_IG', [
-        dict(kicker='Boutique mémorable', title='Les petites choses qui rendent une boutique <span class="hl">mémorable</span>', vis=''),
-        dict(kicker='1 · La présentation', title='Une présentation cohérente', vis=photo('pyramide.jpg', 560, '50% 50%')),
+        dict(kicker='Boutique mémorable', title='Les petites choses qui rendent une boutique <span class="hl">mémorable</span>', vis=f'<div class="center">{ic("star", 300, R)}</div>'),
+        dict(kicker='1 · La présentation', title='Une présentation cohérente', vis=f'<div class="center">{stack(560)}</div>'),
         dict(kicker='2 · La communication', title='Une communication claire', vis=cards([('chat', 'Des messages simples et précis', B, C)], cols=1, h=380)),
-        dict(kicker='3 · L’attention', title='Une attention personnalisée', vis=photo('tshirt.jpg', 560, '50% 50%')),
-        dict(kicker='4 · Le suivi', title='Un suivi après achat', vis=photo('cartons-sol.jpg', 560, '50% 60%'),
+        dict(kicker='3 · L’attention', title='Une attention personnalisée', vis=f'<div class="center">{tshirt(B, N, 460)}</div>'),
+        dict(kicker='4 · Le suivi', title='Un suivi après achat', vis=f'<div class="center">{parcel(N, R, 560)}</div>',
              cta='Quelle petite chose vous a marqué ?'),
     ]))
     s.append(carousel(f'{d}_13h00_IG', [
-        dict(kicker='Votre choix', title='Quel colis <span class="hl">choisirais-tu ?</span>', vis=f'<div class="center" style="gap:30px">{parcel(B,R,300)}{parcel(N,R,300)}</div>'),
-        dict(kicker='Les indices', title='Chaque colis a son univers', vis=
+        dict(kicker='Votre choix', title='Quel colis <span class="hl">choisirais-tu ?</span>', vis=f'<div class="center" style="gap:30px">{parcel(B,R,380)}{parcel(N,R,380)}</div>'),
+        dict(kicker='Les indices', title='Chaque colis a son univers', fs=84, vis=
              cards([('star', '1 · Le colis mode', B, C), ('star', '2 · Le colis beauté', R, C),
-                    ('zap', '3 · Le colis gourmand', N, C), ('lock', '4 · Le colis mystère', L, N)], cols=2, h=380)),
-        dict(kicker='Votre choix', title='Lequel choisissez-vous ?', vis='',
+                    ('zap', '3 · Le colis gourmand', N, C), ('lock', '4 · Le colis mystère', L, N)], cols=2, h=300)),
+        dict(kicker='Votre choix', title='Lequel choisissez-vous ?', vis=parcels4(),
              cta='Répondez 1, 2, 3 ou 4 en commentaire.'),
     ]))
     s.append(post(f'{d}_17h00_IG', 'Visuel · question',
