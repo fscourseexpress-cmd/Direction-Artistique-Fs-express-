@@ -1,0 +1,19 @@
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#000}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;font-family:Inter,Arial,sans-serif}
+.scene{position:absolute;inset:0;opacity:0}
+.abs{position:absolute}
+.a{opacity:0}
+.g{transform:scaleX(0);transform-origin:left center}
+.h{font-family:Archivo,Arial,sans-serif;font-weight:900;letter-spacing:-.02em;line-height:1.02;position:absolute;left:90px;right:90px}
+.kick{position:absolute;left:90px;font-weight:800;font-size:40px;letter-spacing:.2em;text-transform:uppercase}
+.hl{background:#93241E;color:#FBFBF8;padding:0 .14em;border-radius:.14em}
+.hlb{background:#1690C1;color:#FBFBF8;padding:0 .14em;border-radius:.14em}
+.bubble{position:absolute;background:#FBFBF8;color:#0A3D57;font-family:Archivo,Arial,sans-serif;font-weight:900;font-size:72px;line-height:1.1;border-radius:52px;padding:34px 46px;box-shadow:0 20px 40px rgba(10,61,87,.25)}
+.pill{position:absolute;left:90px;background:#93241E;color:#FBFBF8;font-family:Archivo,Arial,sans-serif;font-weight:900;font-size:56px;border-radius:999px;padding:30px 48px;white-space:nowrap}
+.logobox{position:absolute;left:330px;width:420px;height:420px;border-radius:84px;background:#FBFBF8;display:flex;align-items:center;justify-content:center;box-shadow:0 40px 80px rgba(10,61,87,.25)}
+.logobox img{width:340px;height:auto;display:block}
+.stamp{position:absolute;left:0;right:0;text-align:center;font-family:Archivo,Arial,sans-serif;font-weight:900;font-size:230px;line-height:1;letter-spacing:-.02em}
+.btn{position:absolute;width:400px;height:300px;border-radius:44px;color:#FBFBF8;font-family:Archivo,Arial,sans-serif;font-weight:900;font-size:96px;display:flex;align-items:center;justify-content:center}
+.step{position:absolute;left:90px;right:90px;font-family:Archivo,Arial,sans-serif;font-weight:900;font-size:78px;line-height:1.1;color:#0A3D57}
+.mark{position:absolute;left:90px;width:60px;height:60px;border-radius:50%;background:#1690C1}
