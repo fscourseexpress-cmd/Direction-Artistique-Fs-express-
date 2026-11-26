@@ -10,3 +10,4 @@ direction-artistique/semaine-2/v2/tiktok/*.mp4
 direction-artistique/semaine-2/v2/publication-v2/
 direction-artistique/semaine-2/v2/publication-v2-*.zip
 direction-artistique/semaine-2/v2/planning.json
+__pycache__/
